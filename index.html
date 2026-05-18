@@ -26,7 +26,7 @@
         .progress-wrap { margin-bottom: 6px; }
         .progress-bar-bg { background: #e5e7eb; border-radius: 999px; height: 8px; overflow: hidden; }
         .progress-bar-fill { height: 8px; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; }
-        .progress-label { font-size: 0.85rem; color: #6b7280; margin-top: 5px; display: flex; justify-content: space-between; }
+        .progress-label { font-size: 0.85rem; color: #6b7280; margin-top: 5px; display: flex; justify-content: space-between; align-items: center; }
 
         /* Reset button */
         .reset-wrap { text-align: right; margin-bottom: 10px; }
@@ -85,7 +85,6 @@
         <p>MSCE English Paper 1 — Section A</p>
     </header>
 
-    <!-- Progress -->
     <div class="card">
         <div class="reset-wrap">
             <button class="btn-reset" onclick="confirmReset()">↺ Reset Progress</button>
@@ -96,12 +95,12 @@
             </div>
             <div class="progress-label">
                 <span id="progress-text">Loading…</span>
+                <span id="session-timer" style="font-weight: 600; color: var(--primary);">Time: 0m 0s</span>
                 <span id="progress-pct">0%</span>
             </div>
         </div>
     </div>
 
-    <!-- Quiz card -->
     <div class="card" id="quiz-container">
         <div class="question-text" id="question-text">Loading question database…</div>
         <div id="options-container"></div>
@@ -116,10 +115,10 @@
         </div>
     </div>
 
-    <!-- All done -->
     <div class="card" id="done-banner">
         <h2>🎓 You've answered every question!</h2>
         <p>Amazing work — you've gone through all <span id="total-count"></span> questions in the database.</p>
+        <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
         <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
     </div>
 
@@ -131,13 +130,15 @@
     </div>
 </div>
 
-<!-- Milestone modal (every 20 questions) -->
 <div class="modal-overlay" id="milestoneModal">
     <div class="modal-content">
         <div class="modal-header">🎉 20 Questions Done!</div>
         <div class="modal-body">
+            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
+                ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
+            </p>
             <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
-            <p>This quiz is provided entirely free by the <strong>RB Rocket</strong>. If it helped you today, please consider supporting us:</p>
+            <p>This quiz is provided entirely free by the <strong>RB Rocket</strong>. If it helped you today, please consider supporting us to keep the page running:</p>
             <div style="margin-top: 15px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
                 <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">
                     Support our efforts to make MSCE success accessible to all
@@ -166,6 +167,11 @@
     let currentQ = null;                // current question object
     let answered = false;
 
+    /* ─── Session Timer Variables ─── */
+    let sessionStartTime = null;
+    let timerInterval = null;
+    let currentSessionSeconds = 0;
+
     /* ─── Fisher-Yates shuffle ─── */
     function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -191,6 +197,24 @@
             localStorage.setItem(KEY_SEEN,   seenCount);
             localStorage.setItem(KEY_STREAK, streakCount);
         } catch(e) {}
+    }
+
+    /* ─── Session Timer Logic ─── */
+    function startSessionTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        sessionStartTime = Date.now();
+        timerInterval = setInterval(updateSessionTimer, 1000);
+    }
+
+    function updateSessionTimer() {
+        const elapsedMs = Date.now() - sessionStartTime;
+        const totalSeconds = Math.floor(elapsedMs / 1000);
+        currentSessionSeconds = totalSeconds;
+        
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        
+        document.getElementById('session-timer').innerText = `Time: ${minutes}m ${seconds}s`;
     }
 
     /* ─── Initialise ─── */
@@ -222,6 +246,7 @@
                 }
 
                 updateProgress();
+                startSessionTimer();
                 loadNextQuestion();
             })
             .catch(err => {
@@ -293,6 +318,7 @@
     /* ─── Next question button ─── */
     function nextQuestion() {
         if (streakCount > 0 && streakCount % MILESTONE === 0) {
+            clearInterval(timerInterval); // Pause timing
             openModal();
             return;
         }
@@ -313,8 +339,14 @@
 
     /* ─── All-done banner ─── */
     function showDoneBanner() {
+        clearInterval(timerInterval);
         document.getElementById('quiz-container').style.display = 'none';
         document.getElementById('done-banner').style.display = 'block';
+        
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+        document.getElementById('final-session-time').innerText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+        
         updateProgress();
     }
 
@@ -330,11 +362,19 @@
 
     /* ─── Modal ─── */
     function openModal() {
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+        let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
+        
+        document.getElementById('session-time-spent').innerText = timeString;
         document.getElementById('milestoneModal').style.display = 'flex';
     }
 
     function closeModal() {
         document.getElementById('milestoneModal').style.display = 'none';
+        streakCount = 0; // Clear the session counter so the next 20 questions start fresh
+        saveState();
+        startSessionTimer(); // Reset the timer clock back to 0 for the new session
         loadNextQuestion();
     }
 </script>
