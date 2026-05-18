@@ -117,7 +117,7 @@
 
     <div class="card" id="done-banner">
         <h2>🎓 You've answered every question!</h2>
-        <p>Amazing work — you've gone through all <span id="total-count"></span> questions in the database.</p>
+        <p>Amazing work — you've gone through all questions for this session.</p>
         <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
         <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
     </div>
@@ -226,8 +226,7 @@
             })
             .then(data => {
                 db = data;
-                document.getElementById('total-count').textContent = db.length;
-
+                
                 const savedQueue = loadState();
 
                 if (savedQueue && savedQueue.length > 0) {
@@ -327,13 +326,13 @@
 
     /* ─── Progress UI ─── */
     function updateProgress() {
-        const total = db.length;
-        const done  = seenCount;
-        const pct   = total ? Math.round((done / total) * 100) : 0;
+        const totalSession = MILESTONE; // Always 20
+        const doneSession  = streakCount; // How many answered in this session
+        const pct   = Math.round((doneSession / totalSession) * 100);
 
         document.getElementById('progress-fill').style.width = pct + '%';
         document.getElementById('progress-text').innerText =
-            `${done} of ${total} questions answered`;
+            `${doneSession} of ${totalSession} questions answered`;
         document.getElementById('progress-pct').innerText = pct + '%';
     }
 
@@ -372,9 +371,10 @@
 
     function closeModal() {
         document.getElementById('milestoneModal').style.display = 'none';
-        streakCount = 0; // Clear the session counter so the next 20 questions start fresh
+        streakCount = 0; // Clear the session counter
         saveState();
-        startSessionTimer(); // Reset the timer clock back to 0 for the new session
+        updateProgress(); // Instantly resets the bar back to 0 of 20
+        startSessionTimer(); // Reset the timer clock
         loadNextQuestion();
     }
 </script>
