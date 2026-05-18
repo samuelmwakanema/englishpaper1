@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RB Rocket Foundation - MSCE English Living Quiz</title>
+    <title>RB Rocket MSCE English Paper 1 - Section A</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -72,8 +72,8 @@
 
 <div class="container">
     <header>
-        <h1>RB Rocket Foundation</h1>
-        <p>MSCE English Paper 1 — Living Book Edition</p>
+        <h1>RB Rocket</h1>
+        <p>MSCE English Paper 1 — Section A</p>
     </header>
 
     <div class="card">
@@ -104,7 +104,7 @@
     <div class="donation-box">
         <div class="donation-title">💛 Support Open Education</div>
         <p style="font-size: 0.95rem; color: #78350f;">
-            This platform is 100% free, powered by the <strong>RB Rocket Foundation</strong>. To help us keep it online and accessible for students across Malawi, please consider supporting our work.
+            This platform is 100% free, powered by the <strong>RB Rocket</strong>. To help us keep it online and accessible for students across Malawi, please consider supporting our work.
         </p>
     </div>
 </div>
@@ -116,13 +116,11 @@
         </div>
         <div class="modal-body">
             <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">You've successfully finished this session of 20 questions!</p>
-            <p style="margin-bottom: 12px;">This interactive living book is provided entirely free by the <strong>RB Rocket Foundation</strong> to support Malawian students. However, keeping this platform active relies entirely on your generosity.</p>
+            <p style="margin-bottom: 12px;">This interactive quiz is provided entirely free by the <strong>RB Rocket</strong> to support Malawian students. However, keeping this platform active relies entirely on your generosity.</p>
             <p style="font-weight: 600; color: #92400e; margin-bottom: 10px;">If this page helped you today, please consider supporting the page maintenance:</p>
             
             <div class="donation-methods" style="margin-top: 5px;">
-                <div class="method-item">📱 <strong>Airtel Money:</strong> Use Express Window or send to <code>[Your Airtel Number]</code> (RB Rocket Biology)</div>
-                <div class="method-item">📱 <strong>TNM Mpamba:</strong> Send directly to <code>[Your TNM Number]</code></div>
-                <div class="method-item" style="text-align: center;">☕ <a href="https://buymeacoffee.com/yourprofile" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">Support us on Buy Me a Coffee</a></div>
+                               <div class="method-item" style="text-align: center;"> <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">Support our efforts to make MSCE Success accessible to all</a></div>
             </div>
         </div>
         <div class="modal-buttons">
@@ -139,7 +137,7 @@
     const questionsPerBatch = 20;
 
     // Define the exact name of your JSON file here
-    const jsonFileName = 'rb_rocket_biology_eng_mcqs.json';
+    const jsonFileName = 'rb_rocket_eng_mcqs.json';
 
     window.onload = function() {
         // Fetch the native JSON file asynchronously
@@ -269,7 +267,7 @@
             selector.selectedIndex += 1;
             loadNewBatch();
         } else {
-            alert("Incredible work! You have finished every single batch in the database!");
+            alert("Incredible work! Keep learning!");
         }
     }
 </script>
