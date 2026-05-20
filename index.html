@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSCE English Paper I</title>
+    <title>RB Rocket - English Paper I</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZCGZ3X7M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EDZCGZ3X7M');
+    </script>
+
     <style>
         :root {
             --primary: #1e3a8a;
@@ -12,6 +21,7 @@
             --danger: #ef4444;
             --dark: #1f2937;
             --light: #f3f4f6;
+            --selected: #bfdbfe;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -19,27 +29,29 @@
         header { background: var(--primary); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         header h1 { font-size: 1.5rem; margin-bottom: 5px; }
 
-        .container { max-width: 600px; margin: 0 auto; }
+        .container { max-width: 600px; margin: 0 auto; display: none; }
         .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+        /* Top Bar */
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .btn-quit { background: none; border: 1px solid var(--danger); color: var(--danger); padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+        .btn-quit:hover { background: #fee2e2; }
 
         /* Progress bar */
         .progress-wrap { margin-bottom: 6px; }
         .progress-bar-bg { background: #e5e7eb; border-radius: 999px; height: 8px; overflow: hidden; }
-        .progress-bar-fill { height: 8px; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; }
+        .progress-bar-fill { height: 8px; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; width: 0%; }
         .progress-label { font-size: 0.85rem; color: #6b7280; margin-top: 5px; display: flex; justify-content: space-between; align-items: center; }
 
-        /* Reset button */
-        .reset-wrap { text-align: right; margin-bottom: 10px; }
-        .btn-reset { background: none; border: 1px solid #d1d5db; color: #6b7280; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; }
-        .btn-reset:hover { border-color: var(--danger); color: var(--danger); background: #fff1f2; }
-
         /* Question Layout */
+        .topic-badge { display: inline-block; background: #e0e7ff; color: var(--primary); padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
         .question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; }
-        .options-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .options-list { display: flex; flex-direction: column; gap: 10px; }
         .option-btn { width: 100%; text-align: left; padding: 12px 15px; background: #fff; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
         .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f0f4ff; }
-
-        /* Feedback */
+        
+        /* Selection / Feedback */
+        .selected { background: var(--selected) !important; border-color: var(--primary) !important; font-weight: bold; }
         .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; font-weight: bold; }
         .incorrect { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
 
@@ -50,60 +62,55 @@
         .btn { padding: 12px 20px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; font-weight: 600; background: var(--primary); color: white; transition: background 0.2s; }
         .btn:hover { background: #132b6b; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .btn-secondary { background: var(--secondary); color: var(--dark); }
-        .btn-secondary:hover { background: #d98704; }
+        .btn-block { width: 100%; margin-bottom: 10px; }
+
+        /* Select Dropdown */
+        select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #d1d5db; margin-bottom: 15px; font-size: 1rem; }
 
         /* Donation box */
-        .donation-box { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 2px dashed var(--secondary); border-radius: 8px; padding: 20px; text-align: center; margin-top: 30px; }
-        .donation-title { font-size: 1.2rem; font-weight: bold; color: #92400e; margin-bottom: 8px; }
+        .donation-box { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 2px dashed var(--secondary); border-radius: 8px; padding: 15px; text-align: center; margin-top: 20px; font-size: 0.9rem; color: #78350f; }
+        .donation-title { font-size: 1.1rem; font-weight: bold; color: #92400e; margin-bottom: 5px; }
 
-        /* Modal */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background: white; max-width: 500px; width: 100%; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); animation: slideDown 0.3s ease-out; text-align: center; }
-        .modal-header { font-size: 1.4rem; font-weight: bold; color: var(--primary); margin-bottom: 12px; }
-        .modal-body { font-size: 1rem; margin-bottom: 20px; color: #4b5563; text-align: left; }
-        .modal-buttons { display: flex; flex-direction: column; gap: 10px; }
-        .close-modal-btn { background: #e5e7eb; color: var(--dark); padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; }
-        .close-modal-btn:hover { background: #d1d5db; }
-
-        @keyframes slideDown {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* All-done banner */
-        #done-banner { display: none; text-align: center; padding: 30px 20px; }
-        #done-banner h2 { color: var(--primary); margin-bottom: 10px; }
-        #done-banner p { color: #6b7280; margin-bottom: 20px; }
+        /* Overlays / Modals */
+        .modal-overlay { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: white; max-width: 500px; width: 100%; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: center; max-height: 90vh; overflow-y: auto; }
+        .modal-header { font-size: 1.4rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; }
+        
+        .breakdown-list { text-align: left; background: #f9fafb; padding: 15px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem; }
+        .breakdown-item { display: flex; justify-content: space-between; border-bottom: 1px solid #e5e7eb; padding: 5px 0; }
+        .breakdown-item:last-child { border-bottom: none; }
+        
+        #loading-text { font-weight: bold; color: var(--primary); display: none; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="main-ui">
     <header>
-        <h1>MSCE English Paper I</h1>
-        <p>Section A</p>
+        <h1>RB Rocket</h1>
+        <p>English Paper I Practice</p>
     </header>
 
     <div class="card">
-        <div class="reset-wrap">
-            <button class="btn-reset" onclick="confirmReset()">↺ Reset Progress</button>
+        <div class="top-bar">
+            <span id="mode-badge" class="topic-badge" style="margin: 0;">Mode</span>
+            <button class="btn-quit" onclick="goHome()">Quit Session</button>
         </div>
         <div class="progress-wrap">
             <div class="progress-bar-bg">
-                <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+                <div class="progress-bar-fill" id="progress-fill"></div>
             </div>
             <div class="progress-label">
-                <span id="progress-text">Loading…</span>
-                <span id="session-timer" style="font-weight: 600; color: var(--primary);">Time: 0m 0s</span>
-                <span id="progress-pct">0%</span>
+                <span id="progress-text">Question 1 of X</span>
+                <span id="session-timer" style="font-weight: 600; color: var(--danger);">Time: 00:00</span>
             </div>
         </div>
     </div>
 
     <div class="card" id="quiz-container">
-        <div class="question-text" id="question-text">Loading question database…</div>
-        <div id="options-container"></div>
+        <div id="current-topic-label" class="topic-badge" style="display:none;">Topic</div>
+        <div class="question-text" id="question-text">Loading question...</div>
+        <div class="options-list" id="options-container"></div>
 
         <div class="explanation-box" id="explanation-box">
             <div class="explanation-title">Explanation:</div>
@@ -114,65 +121,98 @@
             <button class="btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
         </div>
     </div>
+</div>
 
-    <div class="card" id="done-banner">
-        <h2>🎓 You have answered 20 questions!</h2>
-        <p>You have gone through all questions for this session.</p>
-        <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
-        <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
-    </div>
-
-    <div class="donation-box">
-        <div class="donation-title">💛 Support Open Education 💛</div>
-        <p style="font-size: 0.95rem; color: #78350f;">
-            This platform is managed by <strong>Sam Mwakanema</strong>. Your generous will help keep it online and accessible for students across Malawi, please consider supporting our work. Airtel Money 0993461235, TNM Mpamba 0897969352
-        </p>
+<div class="modal-overlay" id="welcome-modal">
+    <div class="modal-content">
+        <div class="modal-header">Welcome to RB Rocket</div>
+        <p style="margin-bottom: 20px; color: #4b5563;">Select how you would like to practice today.</p>
+        <button class="btn btn-block" onclick="openTopicalModal()">Topical Practice</button>
+        <button class="btn btn-block" style="background: var(--secondary);" onclick="startExamMode()">Take an Exam</button>
+        <div id="loading-text">Loading databases, please wait...</div>
     </div>
 </div>
 
-<div class="modal-overlay" id="milestoneModal">
+<div class="modal-overlay" id="topical-modal" style="display:none;">
     <div class="modal-content">
-        <div class="modal-header">🎉 20 Questions Done!</div>
-        <div class="modal-body">
-            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
-                ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
-            </p>
-            <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
-            <p>This quiz is provided entirely free by <strong>Sam Mwakanema</strong>. If it helped you today, please consider supporting us to keep the page running:</p>
-            <div style="margin-top: 15px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
-                <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">
-                    Support Sam Mwakanema's Open Access Initiatives
-                </a>
+        <div class="modal-header">Topical Practice</div>
+        <p style="margin-bottom: 15px; color: #4b5563;">Select a topic. You will get 5 random questions with instant feedback.</p>
+        <select id="topic-select">
+            <option value="Prepositional Structures">Prepositional Structures</option>
+            <option value="Registers">Registers</option>
+            <option value="Verb Tenses">Verb Tenses</option>
+            <option value="Conditional Sentences">Conditional Sentences</option>
+            <option value="Phrasal Verbs">Phrasal Verbs</option>
+            <option value="Order of Adjectives">Order of Adjectives</option>
+            <option value="Subordinate Clauses">Subordinate Clauses</option>
+            <option value="Phrase">Phrase</option>
+            <option value="Parts of Speech (Adjectives)">Parts of Speech (Adjectives)</option>
+            <option value="Parts of Speech (Adverbs)">Parts of Speech (Adverbs)</option>
+            <option value="Parts of Speech (Conjunctions)">Parts of Speech (Conjunctions)</option>
+            <option value="Parts of Speech (Nouns)">Parts of Speech (Nouns)</option>
+            <option value="Parts of Speech (Prepositions)">Parts of Speech (Prepositions)</option>
+            <option value="Parts of Speech (Pronouns)">Parts of Speech (Pronouns)</option>
+            <option value="Parts of Speech (Verbs)">Parts of Speech (Verbs)</option>
+        </select>
+        <button class="btn btn-block" onclick="startTopicalMode()">Start Practice</button>
+        <button class="btn btn-block" style="background: #9ca3af;" onclick="goHome()">Back</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="results-modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header" id="result-title">Session Complete!</div>
+        <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;" id="result-score">0 / 0</h2>
+        <p style="font-weight: bold; margin-bottom: 15px; color: #4b5563;">⏱️ Time Taken: <span id="result-time">00:00</span></p>
+        
+        <div id="exam-breakdown" class="breakdown-list" style="display:none;">
             </div>
+
+        <div class="donation-box">
+            <div class="donation-title">💛 Support Open Education 💛</div>
+            <p>This platform is managed by <strong>Sam Mwakanema</strong>. Your generous donation will help keep it online. Airtel Money 0993461235, TNM Mpamba 0897969352</p>
+            <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="display:inline-block; margin-top:8px; color: var(--primary); font-weight: bold; text-decoration: underline;">Support Online</a>
         </div>
-        <div class="modal-buttons">
-            <button class="btn" onclick="closeModal()">Continue Practising</button>
-        </div>
+
+        <button class="btn btn-block" style="margin-top: 15px;" onclick="goHome()">Go to Home Menu</button>
     </div>
 </div>
 
 <script>
-    /* ─── Storage keys ─── */
-    const KEY_QUEUE   = 'rbr_queue';    // ordered list of unseen question indices
-    const KEY_SEEN    = 'rbr_seen';     // count of questions answered ever
-    const KEY_STREAK  = 'rbr_streak';   // questions answered since last milestone
+    /* --- File Mapping --- */
+    const FILE_MAP = {
+        "Conditional Sentences": "conditional sentences.json",
+        "Order of Adjectives": "order of adjectives.json",
+        "Phrase": "phrase.json",
+        "Phrasal Verbs": "phrasal verbs.json",
+        "Parts of Speech (Adjectives)": "pop adjectives.json",
+        "Parts of Speech (Adverbs)": "pop adverbs.json",
+        "Parts of Speech (Conjunctions)": "pop conjuctions.json",
+        "Parts of Speech (Nouns)": "pop nouns.json",
+        "Parts of Speech (Prepositions)": "pop prepositions.json",
+        "Parts of Speech (Pronouns)": "pop pronouns.json",
+        "Parts of Speech (Verbs)": "pop verbs.json",
+        "Prepositional Structures": "prepositional_structures.json",
+        "Registers": "registers.json",
+        "Subordinate Clauses": "surbodinate clauses.json",
+        "Verb Tenses": "verb tenses.json"
+    };
 
-    const JSON_FILE = 'rb_rocket_eng_mcqs.json';
-    const MILESTONE = 20;               // show modal every N questions
-
-    let db = [];                        // full database array
-    let queue = [];                     // indices still to be asked this session
-    let seenCount = 0;
-    let streakCount = 0;
-    let currentQ = null;                // current question object
+    /* --- App State --- */
+    let currentMode = ''; // 'TOPICAL' or 'EXAM'
+    let sessionQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let examScoreBreakdown = {}; // Tracks { topicName: { correct: 0, total: 0 } }
     let answered = false;
+    let selectedExamAnswer = null;
 
-    /* ─── Session Timer Variables ─── */
-    let sessionStartTime = null;
+    /* --- Timer State --- */
     let timerInterval = null;
-    let currentSessionSeconds = 0;
+    let timeElapsed = 0; // seconds
+    let examTimeLimit = 40 * 60; // 40 minutes in seconds
 
-    /* ─── Fisher-Yates shuffle ─── */
+    /* --- Helpers --- */
     function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -181,202 +221,272 @@
         return arr;
     }
 
-    /* ─── Load saved state from localStorage ─── */
-    function loadState() {
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    async function fetchDB(filename) {
         try {
-            const savedQueue = localStorage.getItem(KEY_QUEUE);
-            seenCount  = parseInt(localStorage.getItem(KEY_SEEN)   || '0', 10);
-            streakCount = parseInt(localStorage.getItem(KEY_STREAK) || '0', 10);
-            return savedQueue ? JSON.parse(savedQueue) : null;
-        } catch(e) { return null; }
+            const res = await fetch(filename);
+            if (!res.ok) throw new Error();
+            return await res.json();
+        } catch(e) {
+            console.error("Failed to load: " + filename);
+            return [];
+        }
     }
 
-    function saveState() {
-        try {
-            localStorage.setItem(KEY_QUEUE,  JSON.stringify(queue));
-            localStorage.setItem(KEY_SEEN,   seenCount);
-            localStorage.setItem(KEY_STREAK, streakCount);
-        } catch(e) {}
+    /* --- UI Navigation --- */
+    function goHome() {
+        clearInterval(timerInterval);
+        document.getElementById('welcome-modal').style.display = 'flex';
+        document.getElementById('topical-modal').style.display = 'none';
+        document.getElementById('results-modal').style.display = 'none';
+        document.getElementById('main-ui').style.display = 'none';
+        document.getElementById('loading-text').style.display = 'none';
     }
 
-    /* ─── Session Timer Logic ─── */
-    function startSessionTimer() {
-        if (timerInterval) clearInterval(timerInterval);
-        sessionStartTime = Date.now();
-        timerInterval = setInterval(updateSessionTimer, 1000);
+    function openTopicalModal() {
+        document.getElementById('welcome-modal').style.display = 'none';
+        document.getElementById('topical-modal').style.display = 'flex';
     }
 
-    function updateSessionTimer() {
-        const elapsedMs = Date.now() - sessionStartTime;
-        const totalSeconds = Math.floor(elapsedMs / 1000);
-        currentSessionSeconds = totalSeconds;
+    /* --- TOPICAL PRACTICE MODE --- */
+    async function startTopicalMode() {
+        const topic = document.getElementById('topic-select').value;
+        const filename = FILE_MAP[topic];
         
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        
-        document.getElementById('session-timer').innerText = `Time: ${minutes}m ${seconds}s`;
+        document.getElementById('topical-modal').style.display = 'none';
+        document.getElementById('welcome-modal').style.display = 'flex';
+        document.getElementById('loading-text').style.display = 'block';
+
+        const data = await fetchDB(filename);
+        if(data.length === 0) { alert("Error loading database."); goHome(); return; }
+
+        currentMode = 'TOPICAL';
+        sessionQuestions = shuffle(data).slice(0, 5); // 5 random questions
+        sessionQuestions.forEach(q => q.topic = topic);
+
+        initSession("Topical Practice: " + topic);
     }
 
-    /* ─── Initialise ─── */
-    window.onload = function() {
-        fetch(JSON_FILE)
-            .then(r => {
-                if (!r.ok) throw new Error('JSON not found: ' + JSON_FILE);
-                return r.json();
-            })
-            .then(data => {
-                db = data;
-                
-                const savedQueue = loadState();
+    /* --- EXAM MODE --- */
+    async function startExamMode() {
+        document.getElementById('loading-text').style.display = 'block';
+        currentMode = 'EXAM';
+        sessionQuestions = [];
+        examScoreBreakdown = {};
 
-                if (savedQueue && savedQueue.length > 0) {
-                    // Resume — use the saved queue order
-                    queue = savedQueue;
-                } else if (savedQueue && savedQueue.length === 0 && seenCount >= db.length) {
-                    // All done
-                    showDoneBanner();
-                    return;
-                } else {
-                    // Fresh start — shuffle all indices
-                    queue = shuffle([...Array(db.length).keys()]);
-                    seenCount = 0;
-                    streakCount = 0;
-                    saveState();
+        // Requirements mapping
+        const examStructure = [
+            { topic: "Prepositional Structures", count: 8 },
+            { topic: "Registers", count: 3 },
+            { topic: "Verb Tenses", count: 2 },
+            { topic: "Conditional Sentences", count: 2 },
+            { topic: "Phrasal Verbs", count: 3 },
+            { topic: "Parts of Speech", count: 4, isPoS: true }, // Special case pooling all 7 files
+            { topic: "Order of Adjectives", count: 4 },
+            { topic: "Subordinate Clauses", count: 2 },
+            { topic: "Phrase", count: 2 }
+        ];
+
+        let posPool = [];
+
+        for (let rule of examStructure) {
+            examScoreBreakdown[rule.topic] = { correct: 0, total: rule.count };
+
+            if (rule.isPoS) {
+                // Fetch all PoS files and pool them
+                const posKeys = Object.keys(FILE_MAP).filter(k => k.startsWith("Parts of Speech"));
+                for (let k of posKeys) {
+                    const data = await fetchDB(FILE_MAP[k]);
+                    data.forEach(q => q.topic = "Parts of Speech");
+                    posPool = posPool.concat(data);
                 }
-
-                updateProgress();
-                startSessionTimer();
-                loadNextQuestion();
-            })
-            .catch(err => {
-                console.error(err);
-                document.getElementById('question-text').innerText =
-                    "Database Error: Ensure '" + JSON_FILE + "' is in the same folder.";
-            });
-    };
-
-    /* ─── Load next question from queue ─── */
-    function loadNextQuestion() {
-        if (queue.length === 0) {
-            showDoneBanner();
-            return;
+                const selected = shuffle(posPool).slice(0, rule.count);
+                sessionQuestions = sessionQuestions.concat(selected);
+            } else {
+                const data = await fetchDB(FILE_MAP[rule.topic]);
+                data.forEach(q => q.topic = rule.topic);
+                const selected = shuffle(data).slice(0, rule.count);
+                sessionQuestions = sessionQuestions.concat(selected);
+            }
         }
 
-        answered = false;
-        const idx = queue[0];           // peek — we remove it only after answering
-        currentQ = db[idx];
+        if(sessionQuestions.length === 0) { alert("Error loading databases."); goHome(); return; }
+        
+        initSession("Exam Mode (30 Questions)");
+    }
 
-        document.getElementById('question-text').innerText = currentQ.question;
+    /* --- SESSION INITIALIZATION --- */
+    function initSession(badgeText) {
+        document.getElementById('welcome-modal').style.display = 'none';
+        document.getElementById('main-ui').style.display = 'block';
+        document.getElementById('mode-badge').innerText = badgeText;
+        
+        currentIndex = 0;
+        score = 0;
+        timeElapsed = 0;
+        
+        // Reset Exam Breakdown tracking
+        for (let key in examScoreBreakdown) { examScoreBreakdown[key].correct = 0; }
+
+        if (currentMode === 'EXAM') {
+            document.getElementById('session-timer').innerText = `Time Left: ${formatTime(examTimeLimit)}`;
+        } else {
+            document.getElementById('session-timer').innerText = `Time: 00:00`;
+        }
+
+        clearInterval(timerInterval);
+        timerInterval = setInterval(timerTick, 1000);
+
+        loadQuestion();
+    }
+
+    function timerTick() {
+        if (currentMode === 'EXAM') {
+            const timeLeft = examTimeLimit - timeElapsed;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('session-timer').innerText = "Time's Up!";
+                endSession("Time's Up!");
+                return;
+            }
+            document.getElementById('session-timer').innerText = `Time Left: ${formatTime(timeLeft)}`;
+        } else {
+            document.getElementById('session-timer').innerText = `Time: ${formatTime(timeElapsed)}`;
+        }
+        timeElapsed++;
+    }
+
+    /* --- RENDER QUESTION --- */
+    function loadQuestion() {
+        answered = false;
+        selectedExamAnswer = null;
+        const q = sessionQuestions[currentIndex];
+        
+        // Update Progress
+        const total = sessionQuestions.length;
+        const pct = Math.round(((currentIndex) / total) * 100);
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('progress-text').innerText = `Question ${currentIndex + 1} of ${total}`;
+
+        // Update UI
+        if(currentMode === 'EXAM') {
+            document.getElementById('current-topic-label').style.display = 'inline-block';
+            document.getElementById('current-topic-label').innerText = "Topic: " + q.topic;
+        } else {
+            document.getElementById('current-topic-label').style.display = 'none';
+        }
+
+        document.getElementById('question-text').innerText = q.question;
         document.getElementById('explanation-box').style.display = 'none';
-        document.getElementById('next-btn').disabled = true;
-        document.getElementById('next-btn').innerText = 'Next Question';
+        
+        const nextBtn = document.getElementById('next-btn');
+        nextBtn.disabled = true;
+        nextBtn.innerText = (currentIndex === total - 1) ? 'Finish Session' : 'Next Question';
 
         const container = document.getElementById('options-container');
         container.innerHTML = '';
 
-        currentQ.options.forEach(opt => {
+        q.options.forEach(opt => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             btn.innerText = opt;
-            btn.onclick = function() {
-                selectAnswer(btn, opt.charAt(0), currentQ.correctAnswer, currentQ.explanation);
-            };
+            btn.onclick = () => handleAnswerSelect(btn, opt.charAt(0), q);
             container.appendChild(btn);
         });
     }
 
-    /* ─── Handle answer ─── */
-    function selectAnswer(selectedBtn, chosen, correct, explanation) {
-        if (answered) return;
-        answered = true;
+    /* --- HANDLE SELECTION --- */
+    function handleAnswerSelect(btn, chosenLetter, q) {
+        if (currentMode === 'TOPICAL') {
+            if (answered) return;
+            answered = true;
+            
+            const allBtns = document.querySelectorAll('.option-btn');
+            allBtns.forEach(b => b.disabled = true);
 
-        const allBtns = document.querySelectorAll('.option-btn');
-        allBtns.forEach(b => b.disabled = true);
+            if (chosenLetter === q.correctAnswer) {
+                btn.classList.add('correct');
+                score++;
+            } else {
+                btn.classList.add('incorrect');
+                allBtns.forEach(b => {
+                    if (b.innerText.charAt(0) === q.correctAnswer) b.classList.add('correct');
+                });
+            }
 
-        if (chosen === correct) {
-            selectedBtn.classList.add('correct');
-        } else {
-            selectedBtn.classList.add('incorrect');
-            allBtns.forEach(b => {
-                if (b.innerText.charAt(0) === correct) b.classList.add('correct');
-            });
+            document.getElementById('explanation-text').innerText = q.explanation;
+            document.getElementById('explanation-box').style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        } 
+        else if (currentMode === 'EXAM') {
+            // Exam Mode: Just highlight selection, no immediate feedback
+            const allBtns = document.querySelectorAll('.option-btn');
+            allBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            
+            selectedExamAnswer = chosenLetter;
+            document.getElementById('next-btn').disabled = false;
         }
-
-        document.getElementById('explanation-text').innerText = explanation;
-        document.getElementById('explanation-box').style.display = 'block';
-        document.getElementById('next-btn').disabled = false;
-
-        // Commit: remove question from queue, update counts
-        queue.shift();
-        seenCount++;
-        streakCount++;
-        saveState();
-        updateProgress();
     }
 
-    /* ─── Next question button ─── */
+    /* --- NEXT QUESTION --- */
     function nextQuestion() {
-        if (streakCount > 0 && streakCount % MILESTONE === 0) {
-            clearInterval(timerInterval); // Pause timing
-            openModal();
-            return;
+        // Record score for Exam before moving on
+        if (currentMode === 'EXAM' && selectedExamAnswer) {
+            const q = sessionQuestions[currentIndex];
+            if (selectedExamAnswer === q.correctAnswer) {
+                score++;
+                if (examScoreBreakdown[q.topic]) {
+                    examScoreBreakdown[q.topic].correct++;
+                }
+            }
         }
-        loadNextQuestion();
+
+        currentIndex++;
+        
+        if (currentIndex >= sessionQuestions.length) {
+            endSession();
+        } else {
+            loadQuestion();
+        }
     }
 
-    /* ─── Progress UI ─── */
-    function updateProgress() {
-        const totalSession = MILESTONE; // Always 20
-        const doneSession  = streakCount; // How many answered in this session
-        const pct   = Math.round((doneSession / totalSession) * 100);
-
-        document.getElementById('progress-fill').style.width = pct + '%';
-        document.getElementById('progress-text').innerText =
-            `${doneSession} of ${totalSession} questions answered`;
-        document.getElementById('progress-pct').innerText = pct + '%';
-    }
-
-    /* ─── All-done banner ─── */
-    function showDoneBanner() {
+    /* --- END OF SESSION --- */
+    function endSession(customTitle = null) {
         clearInterval(timerInterval);
-        document.getElementById('quiz-container').style.display = 'none';
-        document.getElementById('done-banner').style.display = 'block';
+        document.getElementById('main-ui').style.display = 'none';
         
-        const minutes = Math.floor(currentSessionSeconds / 60);
-        const seconds = currentSessionSeconds % 60;
-        document.getElementById('final-session-time').innerText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+        const modal = document.getElementById('results-modal');
+        const breakdownDiv = document.getElementById('exam-breakdown');
         
-        updateProgress();
-    }
+        document.getElementById('result-title').innerText = customTitle || (currentMode === 'EXAM' ? 'Exam Completed!' : 'Practice Completed!');
+        document.getElementById('result-score').innerText = `${score} / ${sessionQuestions.length}`;
+        document.getElementById('result-time').innerText = formatTime(timeElapsed);
 
-    /* ─── Reset ─── */
-    function confirmReset() {
-        if (confirm('Reset all progress? You will start from scratch with questions in a new random order.')) {
-            localStorage.removeItem(KEY_QUEUE);
-            localStorage.removeItem(KEY_SEEN);
-            localStorage.removeItem(KEY_STREAK);
-            location.reload();
+        if (currentMode === 'EXAM') {
+            breakdownDiv.style.display = 'block';
+            breakdownDiv.innerHTML = '<div style="font-weight:bold; margin-bottom:8px; color:var(--primary);">Topic Breakdown:</div>';
+            for (const [topic, data] of Object.entries(examScoreBreakdown)) {
+                breakdownDiv.innerHTML += `
+                    <div class="breakdown-item">
+                        <span>${topic}</span>
+                        <strong>${data.correct} / ${data.total}</strong>
+                    </div>`;
+            }
+        } else {
+            breakdownDiv.style.display = 'none';
         }
+
+        modal.style.display = 'flex';
     }
 
-    /* ─── Modal ─── */
-    function openModal() {
-        const minutes = Math.floor(currentSessionSeconds / 60);
-        const seconds = currentSessionSeconds % 60;
-        let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
-        
-        document.getElementById('session-time-spent').innerText = timeString;
-        document.getElementById('milestoneModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('milestoneModal').style.display = 'none';
-        streakCount = 0; // Clear the session counter
-        saveState();
-        updateProgress(); // Instantly resets the bar back to 0 of 20
-        startSessionTimer(); // Reset the timer clock
-        loadNextQuestion();
-    }
+    // Initialize to Home Screen on load
+    window.onload = () => goHome();
 </script>
 </body>
 </html>
