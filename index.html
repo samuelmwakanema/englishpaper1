@@ -118,6 +118,7 @@
     <div class="card" id="done-banner">
         <h2>🎓 You have answered 20 questions!</h2>
         <p>You have gone through all questions for this session.</p>
+        <p style="margin-top: 10px; margin-bottom: 10px; font-weight: 600; color: var(--primary); font-size: 1.1rem;">🎯 Final Score: <span id="final-score-banner">0</span> / 20</p>
         <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
         <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
     </div>
@@ -134,8 +135,11 @@
     <div class="modal-content">
         <div class="modal-header">🎉 20 Questions Done!</div>
         <div class="modal-body">
-            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
+            <p style="margin-bottom: 6px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
                 ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
+            </p>
+            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--primary); font-size: 1.1rem;">
+                🎯 Score: <span id="session-score-modal">0</span> / 20
             </p>
             <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
             <p>This quiz is provided entirely free by <strong>Sam Mwakanema</strong>. If it helped you today, please consider supporting us to keep the page running:</p>
@@ -164,6 +168,7 @@
     let queue = [];                     // indices still to be asked this session
     let seenCount = 0;
     let streakCount = 0;
+    let sessionScore = 0;               // tracks correct answers in the current 20-Q session
     let currentQ = null;                // current question object
     let answered = false;
 
@@ -175,208 +180,4 @@
     /* ─── Fisher-Yates shuffle ─── */
     function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-    }
-
-    /* ─── Load saved state from localStorage ─── */
-    function loadState() {
-        try {
-            const savedQueue = localStorage.getItem(KEY_QUEUE);
-            seenCount  = parseInt(localStorage.getItem(KEY_SEEN)   || '0', 10);
-            streakCount = parseInt(localStorage.getItem(KEY_STREAK) || '0', 10);
-            return savedQueue ? JSON.parse(savedQueue) : null;
-        } catch(e) { return null; }
-    }
-
-    function saveState() {
-        try {
-            localStorage.setItem(KEY_QUEUE,  JSON.stringify(queue));
-            localStorage.setItem(KEY_SEEN,   seenCount);
-            localStorage.setItem(KEY_STREAK, streakCount);
-        } catch(e) {}
-    }
-
-    /* ─── Session Timer Logic ─── */
-    function startSessionTimer() {
-        if (timerInterval) clearInterval(timerInterval);
-        sessionStartTime = Date.now();
-        timerInterval = setInterval(updateSessionTimer, 1000);
-    }
-
-    function updateSessionTimer() {
-        const elapsedMs = Date.now() - sessionStartTime;
-        const totalSeconds = Math.floor(elapsedMs / 1000);
-        currentSessionSeconds = totalSeconds;
-        
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        
-        document.getElementById('session-timer').innerText = `Time: ${minutes}m ${seconds}s`;
-    }
-
-    /* ─── Initialise ─── */
-    window.onload = function() {
-        fetch(JSON_FILE)
-            .then(r => {
-                if (!r.ok) throw new Error('JSON not found: ' + JSON_FILE);
-                return r.json();
-            })
-            .then(data => {
-                db = data;
-                
-                const savedQueue = loadState();
-
-                if (savedQueue && savedQueue.length > 0) {
-                    // Resume — use the saved queue order
-                    queue = savedQueue;
-                } else if (savedQueue && savedQueue.length === 0 && seenCount >= db.length) {
-                    // All done
-                    showDoneBanner();
-                    return;
-                } else {
-                    // Fresh start — shuffle all indices
-                    queue = shuffle([...Array(db.length).keys()]);
-                    seenCount = 0;
-                    streakCount = 0;
-                    saveState();
-                }
-
-                updateProgress();
-                startSessionTimer();
-                loadNextQuestion();
-            })
-            .catch(err => {
-                console.error(err);
-                document.getElementById('question-text').innerText =
-                    "Database Error: Ensure '" + JSON_FILE + "' is in the same folder.";
-            });
-    };
-
-    /* ─── Load next question from queue ─── */
-    function loadNextQuestion() {
-        if (queue.length === 0) {
-            showDoneBanner();
-            return;
-        }
-
-        answered = false;
-        const idx = queue[0];           // peek — we remove it only after answering
-        currentQ = db[idx];
-
-        document.getElementById('question-text').innerText = currentQ.question;
-        document.getElementById('explanation-box').style.display = 'none';
-        document.getElementById('next-btn').disabled = true;
-        document.getElementById('next-btn').innerText = 'Next Question';
-
-        const container = document.getElementById('options-container');
-        container.innerHTML = '';
-
-        currentQ.options.forEach(opt => {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.innerText = opt;
-            btn.onclick = function() {
-                selectAnswer(btn, opt.charAt(0), currentQ.correctAnswer, currentQ.explanation);
-            };
-            container.appendChild(btn);
-        });
-    }
-
-    /* ─── Handle answer ─── */
-    function selectAnswer(selectedBtn, chosen, correct, explanation) {
-        if (answered) return;
-        answered = true;
-
-        const allBtns = document.querySelectorAll('.option-btn');
-        allBtns.forEach(b => b.disabled = true);
-
-        if (chosen === correct) {
-            selectedBtn.classList.add('correct');
-        } else {
-            selectedBtn.classList.add('incorrect');
-            allBtns.forEach(b => {
-                if (b.innerText.charAt(0) === correct) b.classList.add('correct');
-            });
-        }
-
-        document.getElementById('explanation-text').innerText = explanation;
-        document.getElementById('explanation-box').style.display = 'block';
-        document.getElementById('next-btn').disabled = false;
-
-        // Commit: remove question from queue, update counts
-        queue.shift();
-        seenCount++;
-        streakCount++;
-        saveState();
-        updateProgress();
-    }
-
-    /* ─── Next question button ─── */
-    function nextQuestion() {
-        if (streakCount > 0 && streakCount % MILESTONE === 0) {
-            clearInterval(timerInterval); // Pause timing
-            openModal();
-            return;
-        }
-        loadNextQuestion();
-    }
-
-    /* ─── Progress UI ─── */
-    function updateProgress() {
-        const totalSession = MILESTONE; // Always 20
-        const doneSession  = streakCount; // How many answered in this session
-        const pct   = Math.round((doneSession / totalSession) * 100);
-
-        document.getElementById('progress-fill').style.width = pct + '%';
-        document.getElementById('progress-text').innerText =
-            `${doneSession} of ${totalSession} questions answered`;
-        document.getElementById('progress-pct').innerText = pct + '%';
-    }
-
-    /* ─── All-done banner ─── */
-    function showDoneBanner() {
-        clearInterval(timerInterval);
-        document.getElementById('quiz-container').style.display = 'none';
-        document.getElementById('done-banner').style.display = 'block';
-        
-        const minutes = Math.floor(currentSessionSeconds / 60);
-        const seconds = currentSessionSeconds % 60;
-        document.getElementById('final-session-time').innerText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
-        
-        updateProgress();
-    }
-
-    /* ─── Reset ─── */
-    function confirmReset() {
-        if (confirm('Reset all progress? You will start from scratch with questions in a new random order.')) {
-            localStorage.removeItem(KEY_QUEUE);
-            localStorage.removeItem(KEY_SEEN);
-            localStorage.removeItem(KEY_STREAK);
-            location.reload();
-        }
-    }
-
-    /* ─── Modal ─── */
-    function openModal() {
-        const minutes = Math.floor(currentSessionSeconds / 60);
-        const seconds = currentSessionSeconds % 60;
-        let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
-        
-        document.getElementById('session-time-spent').innerText = timeString;
-        document.getElementById('milestoneModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('milestoneModal').style.display = 'none';
-        streakCount = 0; // Clear the session counter
-        saveState();
-        updateProgress(); // Instantly resets the bar back to 0 of 20
-        startSessionTimer(); // Reset the timer clock
-        loadNextQuestion();
-    }
-</script>
-</body>
-</html>
+            const j = Math.floor(Math.
