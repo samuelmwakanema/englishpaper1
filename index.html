@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCE English Paper I</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; padding: 15px; }
+        header { background: var(--primary); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+
+        .container { max-width: 600px; margin: 0 auto; }
+        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+        /* Progress bar */
+        .progress-wrap { margin-bottom: 6px; }
+        .progress-bar-bg { background: #e5e7eb; border-radius: 999px; height: 8px; overflow: hidden; }
+        .progress-bar-fill { height: 8px; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; }
+        .progress-label { font-size: 0.85rem; color: #6b7280; margin-top: 5px; display: flex; justify-content: space-between; align-items: center; }
+
+        /* Reset button */
+        .reset-wrap { text-align: right; margin-bottom: 10px; }
+        .btn-reset { background: none; border: 1px solid #d1d5db; color: #6b7280; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; }
+        .btn-reset:hover { border-color: var(--danger); color: var(--danger); background: #fff1f2; }
+
+        /* Question Layout */
+        .question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; }
+        .options-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .option-btn { width: 100%; text-align: left; padding: 12px 15px; background: #fff; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f0f4ff; }
+
+        /* Feedback */
+        .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; font-weight: bold; }
+        .incorrect { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+        .explanation-box { background: #eff6ff; border-left: 4px solid var(--primary); padding: 15px; margin-top: 15px; border-radius: 0 6px 6px 0; display: none; }
+        .explanation-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+
+        .nav-buttons { display: flex; justify-content: flex-end; margin-top: 20px; }
+        .btn { padding: 12px 20px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; font-weight: 600; background: var(--primary); color: white; transition: background 0.2s; }
+        .btn:hover { background: #132b6b; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-secondary { background: var(--secondary); color: var(--dark); }
+        .btn-secondary:hover { background: #d98704; }
+
+        /* Donation box */
+        .donation-box { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 2px dashed var(--secondary); border-radius: 8px; padding: 20px; text-align: center; margin-top: 30px; }
+        .donation-title { font-size: 1.2rem; font-weight: bold; color: #92400e; margin-bottom: 8px; }
+
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: white; max-width: 500px; width: 100%; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); animation: slideDown 0.3s ease-out; text-align: center; }
+        .modal-header { font-size: 1.4rem; font-weight: bold; color: var(--primary); margin-bottom: 12px; }
+        .modal-body { font-size: 1rem; margin-bottom: 20px; color: #4b5563; text-align: left; }
+        .modal-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .close-modal-btn { background: #e5e7eb; color: var(--dark); padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; }
+        .close-modal-btn:hover { background: #d1d5db; }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* All-done banner */
+        #done-banner { display: none; text-align: center; padding: 30px 20px; }
+        #done-banner h2 { color: var(--primary); margin-bottom: 10px; }
+        #done-banner p { color: #6b7280; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MSCE English Paper I</h1>
+        <p>Section A</p>
+    </header>
+
+    <div class="card">
+        <div class="reset-wrap">
+            <button class="btn-reset" onclick="confirmReset()">↺ Reset Progress</button>
+        </div>
+        <div class="progress-wrap">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+            <div class="progress-label" style="gap:10px; flex-wrap:wrap;">
+    <span id="progress-text">Loading…</span>
+    <span id="session-score" style="font-weight:700; color: var(--success);">
+        Score: 0/20
+    </span>
+    <span id="session-timer" style="font-weight: 600; color: var(--primary);">
+        Time: 0m 0s
+    </span>
+    <span id="progress-pct">0%</span>
+</div>
+        </div>
+    </div>
+
+    <div class="card" id="quiz-container">
+        <div class="question-text" id="question-text">Loading question database…</div>
+        <div id="options-container"></div>
+
+        <div class="explanation-box" id="explanation-box">
+            <div class="explanation-title">Explanation:</div>
+            <div id="explanation-text"></div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+        </div>
+    </div>
+
+    <div class="card" id="done-banner">
+        <h2>🎓 You have answered 20 questions!</h2>
+        <p>You have gone through all questions for this session.</p>
+        <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
+        <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
+    </div>
+
+    <div class="donation-box">
+        <div class="donation-title">💛 Support Open Education 💛</div>
+        <p style="font-size: 0.95rem; color: #78350f;">
+            This platform is managed by <strong>Sam Mwakanema</strong>. Your generous will help keep it online and accessible for students across Malawi, please consider supporting our work. Airtel Money 0993461235, TNM Mpamba 0897969352
+        </p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="milestoneModal">
+    <div class="modal-content">
+        <div class="modal-header">🎉 20 Questions Done!</div>
+        <div class="modal-body">
+            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
+    ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
+</p>
+
+<p style="margin-bottom: 15px; text-align:center; font-size:1.2rem; font-weight:bold; color: var(--primary);">
+    🎯 Your Score: <span id="final-score">0/20</span>
+</p>
+            <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
+            <p>This quiz is provided entirely free by <strong>Sam Mwakanema</strong>. If it helped you today, please consider supporting us to keep the page running:</p>
+            <div style="margin-top: 15px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
+                <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: underline;">
+                    Support Sam Mwakanema's Open Access Initiatives
+                </a>
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn" onclick="closeModal()">Continue Practising</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* ─── Storage keys ─── */
+    const KEY_QUEUE   = 'rbr_queue';    // ordered list of unseen question indices
+    const KEY_SEEN    = 'rbr_seen';     // count of questions answered ever
+    const KEY_STREAK  = 'rbr_streak';   // questions answered since last milestone
+
+    const JSON_FILE = 'rb_rocket_eng_mcqs.json';
+    const MILESTONE = 20;               // show modal every N questions
+
+    let db = [];                        // full database array
+    let queue = [];                     // indices still to be asked this session
+    let seenCount = 0;
+    let streakCount = 0;
+    let currentQ = null;                // current question object
+    let answered = false;
+
+    /* ─── Score Tracking ─── */
+    let sessionScore = 0;
+    let totalAnsweredThisSession = 0;
+
+    /* ─── Session Timer Variables ─── */
+    let sessionStartTime = null;
+    let timerInterval = null;
+    let currentSessionSeconds = 0;
+
+    /* ─── Fisher-Yates shuffle ─── */
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    /* ─── Load saved state from localStorage ─── */
+    function loadState() {
+        try {
+            const savedQueue = localStorage.getItem(KEY_QUEUE);
+            seenCount  = parseInt(localStorage.getItem(KEY_SEEN)   || '0', 10);
+            streakCount = parseInt(localStorage.getItem(KEY_STREAK) || '0', 10);
+            return savedQueue ? JSON.parse(savedQueue) : null;
+        } catch(e) { return null; }
+    }
+
+    function saveState() {
+        try {
+            localStorage.setItem(KEY_QUEUE,  JSON.stringify(queue));
+            localStorage.setItem(KEY_SEEN,   seenCount);
+            localStorage.setItem(KEY_STREAK, streakCount);
+        } catch(e) {}
+    }
+
+    /* ─── Session Timer Logic ─── */
+    function startSessionTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        sessionStartTime = Date.now();
+        timerInterval = setInterval(updateSessionTimer, 1000);
+    }
+
+    function updateSessionTimer() {
+        const elapsedMs = Date.now() - sessionStartTime;
+        const totalSeconds = Math.floor(elapsedMs / 1000);
+        currentSessionSeconds = totalSeconds;
+        
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        
+        document.getElementById('session-timer').innerText = `Time: ${minutes}m ${seconds}s`;
+    }
+
+    /* ─── Initialise ─── */
+    window.onload = function() {
+        fetch(JSON_FILE)
+            .then(r => {
+                if (!r.ok) throw new Error('JSON not found: ' + JSON_FILE);
+                return r.json();
+            })
+            .then(data => {
+                db = data;
+                
+                const savedQueue = loadState();
+
+                if (savedQueue && savedQueue.length > 0) {
+                    // Resume — use the saved queue order
+                    queue = savedQueue;
+                } else if (savedQueue && savedQueue.length === 0 && seenCount >= db.length) {
+                    // All done
+                    showDoneBanner();
+                    return;
+                } else {
+                    // Fresh start — shuffle all indices
+                    queue = shuffle([...Array(db.length).keys()]);
+                    seenCount = 0;
+                    streakCount = 0;
+                    saveState();
+                }
+
+                updateProgress();updateScoreDisplay();
+                startSessionTimer();
+                loadNextQuestion();
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('question-text').innerText =
+                    "Database Error: Ensure '" + JSON_FILE + "' is in the same folder.";
+            });
+    };
+
+    /* ─── Load next question from queue ─── */
+    function loadNextQuestion() {
+        if (queue.length === 0) {
+            showDoneBanner();
+            return;
+        }
+
+        answered = false;
+        const idx = queue[0];           // peek — we remove it only after answering
+        currentQ = db[idx];
+
+        document.getElementById('question-text').innerText = currentQ.question;
+        document.getElementById('explanation-box').style.display = 'none';
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('next-btn').innerText = 'Next Question';
+
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+
+        currentQ.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = opt;
+            btn.onclick = function() {
+                selectAnswer(btn, opt.charAt(0), currentQ.correctAnswer, currentQ.explanation);
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    /* ─── Handle answer ─── */
+    function selectAnswer(selectedBtn, chosen, correct, explanation) {
+        if (answered) return;
+        answered = true;
+
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (chosen === correct) {
+    selectedBtn.classList.add('correct');
+    sessionScore++;
+} else {
+    selectedBtn.classList.add('incorrect');
+    allBtns.forEach(b => {
+        if (b.innerText.charAt(0) === correct) b.classList.add('correct');
+    });
+}
+
+totalAnsweredThisSession++;
+updateScoreDisplay();
+
+        document.getElementById('explanation-text').innerText = explanation;
+        document.getElementById('explanation-box').style.display = 'block';
+        document.getElementById('next-btn').disabled = false;
+
+        // Commit: remove question from queue, update counts
+        queue.shift();
+        seenCount++;
+        streakCount++;
+        saveState();
+        updateProgress();
+    }
+
+    /* ─── Next question button ─── */
+    function nextQuestion() {
+        if (streakCount > 0 && streakCount % MILESTONE === 0) {
+            clearInterval(timerInterval); // Pause timing
+            openModal();
+            return;
+        }
+        loadNextQuestion();
+    }
+
+    /* ─── Progress UI ─── */
+    function updateProgress() {
+        const totalSession = MILESTONE; // Always 20
+        const doneSession  = streakCount; // How many answered in this session
+        const pct   = Math.round((doneSession / totalSession) * 100);
+
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('progress-text').innerText =
+            `${doneSession} of ${totalSession} questions answered`;
+        document.getElementById('progress-pct').innerText = pct + '%';
+    }
+
+    /* ─── All-done banner ─── */
+    function showDoneBanner() {
+        clearInterval(timerInterval);
+
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('done-banner').style.display = 'block';
+
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+
+        document.getElementById('final-session-time').innerText =
+            minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+
+        updateProgress();
+    }
+
+    /* ─── Score Display ─── */
+    function updateScoreDisplay() {
+        document.getElementById('session-score').innerText =
+            `Score: ${sessionScore}/${MILESTONE}`;
+    }
+
+    /* ─── Reset ─── */
+    function confirmReset() {
+
+        if (confirm('Reset all progress? You will start from scratch with questions in a new random order.')) {
+            localStorage.removeItem(KEY_QUEUE);
+            localStorage.removeItem(KEY_SEEN);
+            localStorage.removeItem(KEY_STREAK);
+            location.reload();
+        }
+    }
+
+    /* ─── Modal ─── */
+    function openModal() {
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+        let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
+        
+        document.getElementById('session-time-spent').innerText = timeString;
+document.getElementById('final-score').innerText = `${sessionScore}/${MILESTONE}`;
+document.getElementById('milestoneModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('milestoneModal').style.display = 'none';
+
+        streakCount = 0;
+sessionScore = 0;
+totalAnsweredThisSession = 0;
+
+saveState();
+updateProgress();
+updateScoreDisplay();
+startSessionTimer();
+loadNextQuestion();
+    }
+</script>
+</body>
+</html>
