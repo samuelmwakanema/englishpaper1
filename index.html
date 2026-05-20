@@ -93,11 +93,16 @@
             <div class="progress-bar-bg">
                 <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
             </div>
-            <div class="progress-label">
-                <span id="progress-text">Loading…</span>
-                <span id="session-timer" style="font-weight: 600; color: var(--primary);">Time: 0m 0s</span>
-                <span id="progress-pct">0%</span>
-            </div>
+            <div class="progress-label" style="gap:10px; flex-wrap:wrap;">
+    <span id="progress-text">Loading…</span>
+    <span id="session-score" style="font-weight:700; color: var(--success);">
+        Score: 0/20
+    </span>
+    <span id="session-timer" style="font-weight: 600; color: var(--primary);">
+        Time: 0m 0s
+    </span>
+    <span id="progress-pct">0%</span>
+</div>
         </div>
     </div>
 
@@ -135,8 +140,12 @@
         <div class="modal-header">🎉 20 Questions Done!</div>
         <div class="modal-body">
             <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
-                ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
-            </p>
+    ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
+</p>
+
+<p style="margin-bottom: 15px; text-align:center; font-size:1.2rem; font-weight:bold; color: var(--primary);">
+    🎯 Your Score: <span id="final-score">0/20</span>
+</p>
             <p style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
             <p>This quiz is provided entirely free by <strong>Sam Mwakanema</strong>. If it helped you today, please consider supporting us to keep the page running:</p>
             <div style="margin-top: 15px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
@@ -166,6 +175,10 @@
     let streakCount = 0;
     let currentQ = null;                // current question object
     let answered = false;
+
+    /* ─── Score Tracking ─── */
+    let sessionScore = 0;
+    let totalAnsweredThisSession = 0;
 
     /* ─── Session Timer Variables ─── */
     let sessionStartTime = null;
@@ -244,7 +257,7 @@
                     saveState();
                 }
 
-                updateProgress();
+                updateProgress();updateScoreDisplay();
                 startSessionTimer();
                 loadNextQuestion();
             })
@@ -294,13 +307,17 @@
         allBtns.forEach(b => b.disabled = true);
 
         if (chosen === correct) {
-            selectedBtn.classList.add('correct');
-        } else {
-            selectedBtn.classList.add('incorrect');
-            allBtns.forEach(b => {
-                if (b.innerText.charAt(0) === correct) b.classList.add('correct');
-            });
-        }
+    selectedBtn.classList.add('correct');
+    sessionScore++;
+} else {
+    selectedBtn.classList.add('incorrect');
+    allBtns.forEach(b => {
+        if (b.innerText.charAt(0) === correct) b.classList.add('correct');
+    });
+}
+
+totalAnsweredThisSession++;
+updateScoreDisplay();
 
         document.getElementById('explanation-text').innerText = explanation;
         document.getElementById('explanation-box').style.display = 'block';
@@ -347,8 +364,11 @@
         document.getElementById('final-session-time').innerText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
         
         updateProgress();
-    }
-
+        function updateScoreDisplay() {
+    document.getElementById('session-score').innerText =
+        `Score: ${sessionScore}/${MILESTONE}`;
+}
+    
     /* ─── Reset ─── */
     function confirmReset() {
         if (confirm('Reset all progress? You will start from scratch with questions in a new random order.')) {
@@ -366,16 +386,20 @@
         let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
         
         document.getElementById('session-time-spent').innerText = timeString;
-        document.getElementById('milestoneModal').style.display = 'flex';
+document.getElementById('final-score').innerText = `${sessionScore}/${MILESTONE}`;
+document.getElementById('milestoneModal').style.display = 'flex';
     }
 
     function closeModal() {
-        document.getElementById('milestoneModal').style.display = 'none';
-        streakCount = 0; // Clear the session counter
-        saveState();
-        updateProgress(); // Instantly resets the bar back to 0 of 20
-        startSessionTimer(); // Reset the timer clock
-        loadNextQuestion();
+        streakCount = 0;
+sessionScore = 0;
+totalAnsweredThisSession = 0;
+
+saveState();
+updateProgress();
+updateScoreDisplay();
+startSessionTimer();
+loadNextQuestion();
     }
 </script>
 </body>
