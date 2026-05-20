@@ -1,0 +1,376 @@
+[
+    {
+        "question": "He left the place in a hurry. (in a hurry)",
+        "options": [
+            "A. adjective phrase qualifying \u2018place\u2019",
+            " B. noun phrase object of \u2018left\u2019",
+            " C. adverb phrase modifying \u2018left\u2019",
+            " D. adjective clause qualifying \u2018place\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "It tells how the person left. This makes it an adverb phrase."
+    },
+    {
+        "question": "The house by the lake belongs to Chief Mapiri. (by the lake)",
+        "options": [
+            "A. adjective phrase qualifying \u2018house\u2019",
+            " B. adverb phrase modifying \u2018belongs\u2019",
+            " C. noun phrase subject of \u2018belongs\u2019",
+            " D. adjective clause qualifying \u2018house\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This phrase describes the house. It tells us which house it is."
+    },
+    {
+        "question": "Cleaning of the streets is appreciated by many. (Cleaning of the streets)",
+        "options": [
+            "A. noun phrase object of \u2018appreciated\u2019",
+            " B. adjective phrase qualifying \u2018streets\u2019",
+            " C. noun phrase subject of \u2018is\u2019",
+            " D. adverb phrase modifying \u2018is\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This group of words is the subject. It is the thing being appreciated."
+    },
+    {
+        "question": "The girl sitting on the bench is beautiful. (sitting on the bench)",
+        "options": [
+            "A. adjective clause qualifying \u2018girl\u2019",
+            " B. adjective phrase qualifying \u2018girl\u2019",
+            " C. noun phrase in apposition to \u2018girl\u2019",
+            " D. adverb phrase modifying \u2018is\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase acts like an adjective. It tells us more about the girl."
+    },
+    {
+        "question": "The group decided to hold the meeting close to the office. (close to the office)",
+        "options": [
+            "A. adjective phrase qualifying \u2018meeting\u2019",
+            " B. adverb phrase modifying \u2018hold\u2019",
+            " C. noun phrase object of \u2018hold\u2019",
+            " D. adverb clause modifying \u2018decided\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "It tells where the meeting is held. This makes it an adverb phrase."
+    },
+    {
+        "question": "To find fault is easy. (To find fault)",
+        "options": [
+            "A. noun phrase complement of \u2018is\u2019",
+            " B. adjective phrase qualifying \u2018fault\u2019",
+            " C. adverb phrase modifying \u2018is\u2019",
+            " D. noun phrase subject of \u2018is\u2019"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This phrase is the subject of the sentence. It is the thing that is easy."
+    },
+    {
+        "question": "He speaks like a born orator. (like a born orator)",
+        "options": [
+            "A. adjective phrase qualifying \u2018he\u2019",
+            " B. noun phrase complement of \u2018speaks\u2019",
+            " C. adverb phrase modifying \u2018speaks\u2019",
+            " D. adjective clause qualifying \u2018orator\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "It describes the way he speaks. This means it is an adverb phrase."
+    },
+    {
+        "question": "Beyond a doubt, this man is honest. (Beyond a doubt)",
+        "options": [
+            "A. adjective phrase qualifying \u2018man\u2019",
+            " B. adverb phrase modifying \u2018is\u2019",
+            " C. noun phrase subject of \u2018is\u2019",
+            " D. adverb phrase modifying \u2018honest\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase describes how the man is honest. It modifies the verb."
+    },
+    {
+        "question": "He failed in spite of his best efforts. (in spite of his best efforts)",
+        "options": [
+            "A. adverb phrase modifying \u2018failed\u2019",
+            " B. adjective phrase qualifying \u2018he\u2019",
+            " C. noun phrase object of \u2018failed\u2019",
+            " D. adverb clause modifying \u2018failed\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "It gives a reason for the failure. It modifies the verb."
+    },
+    {
+        "question": "I have forgotten how to play this game. (how to play this game)",
+        "options": [
+            "A. adverb phrase modifying \u2018forgotten\u2019",
+            " B. noun phrase object of \u2018forgotten\u2019",
+            " C. adjective phrase qualifying \u2018game\u2019",
+            " D. noun clause object of \u2018forgotten\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase is the object. It is the thing that was forgotten."
+    },
+    {
+        "question": "The train is behind time. (behind time)",
+        "options": [
+            "A. adjective phrase qualifying \u2018train\u2019",
+            " B. noun phrase complement of \u2018is\u2019",
+            " C. adverb phrase modifying \u2018is\u2019",
+            " D. adverb clause modifying \u2018is\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This phrase acts as an adverb. It tells us about the time."
+    },
+    {
+        "question": "He is a man of means. (of means)",
+        "options": [
+            "A. adjective phrase qualifying \u2018man\u2019",
+            " B. adverb phrase modifying \u2018is\u2019",
+            " C. noun phrase complement of \u2018is\u2019",
+            " D. adjective phrase qualifying \u2018he\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "It describes the man. It tells us what kind of man he is."
+    },
+    {
+        "question": "I want to go to the cinema today. (to go to the cinema today)",
+        "options": [
+            "A. adverb phrase modifying \u2018want\u2019",
+            " B. adjective phrase qualifying \u2018cinema\u2019",
+            " C. noun phrase object of \u2018want\u2019",
+            " D. noun phrase subject of \u2018want\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This phrase is the object. it is what the person wants."
+    },
+    {
+        "question": "He stood on the bridge at midnight. (on the bridge)",
+        "options": [
+            "A. adjective phrase qualifying \u2018bridge\u2019",
+            " B. noun phrase object of \u2018stood\u2019",
+            " C. adverb phrase modifying \u2018stood\u2019",
+            " D. adverb phrase modifying \u2018bridge\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "It tells where the person stood. This makes it an adverb phrase."
+    },
+    {
+        "question": "The cat slept under the tree. (under the tree)",
+        "options": [
+            "A. adjective phrase qualifying \u2018cat\u2019",
+            " B. adverb phrase modifying \u2018slept\u2019",
+            " C. noun phrase complement of \u2018slept\u2019",
+            " D. adjective phrase qualifying \u2018tree\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase tells us where the cat slept. It modifies the verb."
+    },
+    {
+        "question": "He treated his relatives with great kindness. (with great kindness)",
+        "options": [
+            "A. adjective phrase qualifying \u2018relatives\u2019",
+            " B. noun phrase object of \u2018treated\u2019",
+            " C. adverb phrase modifying \u2018treated\u2019",
+            "nan"
+        ],
+        "correctAnswer": "C",
+        "explanation": "It describes how he treated them. This is an adverb phrase."
+    },
+    {
+        "question": "The leader of the colony was William Bradford. (The leader of the colony)",
+        "options": [
+            "A. noun phrase subject of \u2018was\u2019",
+            " B. adjective phrase qualifying \u2018leader\u2019",
+            " C. noun phrase complement of \u2018was\u2019",
+            " D. adverb phrase modifying \u2018was\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The source says this is a complement. It helps complete the verb."
+    },
+    {
+        "question": "One of the early settlements disappeared. (One of the early settlements)",
+        "options": [
+            "A. noun phrase subject of \u2018disappeared\u2019",
+            " B. adjective phrase qualifying \u2018settlements\u2019",
+            " C. adverb phrase modifying \u2018disappeared\u2019",
+            " D. noun phrase object of \u2018disappeared\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This phrase is the subject. It tells what disappeared."
+    },
+    {
+        "question": "The walk in space will be televised. (in space)",
+        "options": [
+            "A. adverb phrase modifying \u2018will be televised\u2019",
+            " B. adjective phrase qualifying \u2018walk\u2019",
+            " C. noun phrase subject of \u2018will be televised\u2019",
+            " D. adjective clause qualifying \u2018walk\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase describes the walk. It tells us which walk it is."
+    },
+    {
+        "question": "On the piano was a bowl of fresh flowers. (On the piano)",
+        "options": [
+            "A. noun phrase subject of \u2018was\u2019",
+            " B. adverb phrase modifying \u2018was\u2019",
+            " C. noun phrase object of \u2018on\u2019",
+            " D. adjective phrase qualifying \u2018piano\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The source says this is the subject. It is the main part of the sentence."
+    },
+    {
+        "question": "He removed the tire with great ease. (with great ease)",
+        "options": [
+            "A. adjective phrase qualifying \u2018tire\u2019",
+            " B. adverb phrase modifying \u2018removed\u2019",
+            " C. noun phrase object of \u2018removed\u2019",
+            " D. adjective phrase qualifying \u2018he\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase tells how he removed the tire. It acts as an adverb."
+    },
+    {
+        "question": "After seeing the King, he departed. (After seeing the King)",
+        "options": [
+            "A. adverb phrase modifying \u2018departed\u2019",
+            " B. noun phrase subject of \u2018departed\u2019",
+            " C. adjective phrase qualifying \u2018he\u2019",
+            " D. adverb clause modifying \u2018departed\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "It tells when the person departed. This makes it an adverb phrase."
+    },
+    {
+        "question": "He has gone to the river to bathe. (to bathe)",
+        "options": [
+            "A. adjective phrase qualifying \u2018river\u2019",
+            " B. noun phrase object of \u2018has gone\u2019",
+            " C. adverb phrase modifying \u2018has gone\u2019",
+            " D. adverb clause modifying \u2018has gone\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This phrase tells why he went. It acts as an adverb."
+    },
+    {
+        "question": "To drive a car requires skill. (To drive a car)",
+        "options": [
+            "A. noun phrase subject of \u2018requires\u2019",
+            " B. adverb phrase modifying \u2018requires\u2019",
+            " C. adjective phrase qualifying \u2018car\u2019",
+            " D. noun phrase object of \u2018requires\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This phrase is the subject. It is the thing that needs skill."
+    },
+    {
+        "question": "The postman looked very tired. (very tired)",
+        "options": [
+            "A. adverb phrase modifying \u2018looked\u2019",
+            " B. adjective phrase qualifying \u2018postman\u2019",
+            " C. noun phrase complement of \u2018looked\u2019",
+            " D. adjective phrase complement of \u2018looked\u2019"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This phrase describes the postman. It completes the linking verb."
+    },
+    {
+        "question": "I heard his answer spoken quietly. (spoken quietly)",
+        "options": [
+            "A. adverb phrase modifying \u2018heard\u2019",
+            " B. adjective phrase qualifying \u2018answer\u2019",
+            " C. noun phrase object of \u2018heard\u2019",
+            " D. adjective clause qualifying \u2018answer\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The source says this is part of the object. It is what was heard."
+    },
+    {
+        "question": "The cackling of geese saved Rome. (The cackling of geese)",
+        "options": [
+            "A. noun phrase subject of \u2018saved\u2019",
+            " B. adjective phrase qualifying \u2018cackling\u2019",
+            " C. adverb phrase modifying \u2018saved\u2019",
+            " D. noun phrase object of \u2018saved\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This phrase is the subject. It is what saved Rome."
+    },
+    {
+        "question": "A nod from a lord is breakfast for a fool. (A nod from a lord)",
+        "options": [
+            "A. adjective phrase qualifying \u2018nod\u2019",
+            " B. noun phrase subject of \u2018is\u2019",
+            " C. adverb phrase modifying \u2018is\u2019",
+            " D. noun phrase complement of \u2018is\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase is the subject. It is what the sentence is about."
+    },
+    {
+        "question": "The farmer\u2019s rosy children sat. (The farmer\u2019s rosy children)",
+        "options": [
+            "A. adjective phrase qualifying \u2018farmer\u2019",
+            " B. noun phrase subject of \u2018sat\u2019",
+            " C. adverb phrase modifying \u2018sat\u2019",
+            " D. noun phrase object of \u2018farmer\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This phrase is the subject. It tells who sat down."
+    },
+    {
+        "question": "Home they brought her warrior dead. (her warrior dead)",
+        "options": [
+            "A. noun phrase subject of \u2018brought\u2019",
+            " B. adverb phrase modifying \u2018brought\u2019",
+            " C. noun phrase object of \u2018brought\u2019",
+            " D. adjective phrase qualifying \u2018warrior\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This phrase is the object. It is what they brought home."
+    },
+    {
+        "question": "The crop bought from the young man was absolutely perfect. (bought from the young man)",
+        "options": [
+            "A. adjective phrase qualifying \u2018crop\u2019",
+            " B. adverb phrase modifying \u2018was\u2019",
+            " C. noun phrase subject of \u2018was\u2019",
+            " D. adjective clause qualifying \u2018crop\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "It describes the crop. It tells us where the crop came from."
+    },
+    {
+        "question": "My sister and I carried the gear and studied the map. (studied the map)",
+        "options": [
+            "A. noun phrase object of \u2018carried\u2019",
+            " B. adverb phrase modifying \u2018carried\u2019",
+            " C. verb phrase co-ordinate with \u2018carried the gear\u2019",
+            " D. adjective phrase qualifying \u2018I\u2019"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a verb phrase. it is one of the actions done."
+    },
+    {
+        "question": "Lucky ran to the door and barked loudly. (barked loudly)",
+        "options": [
+            "A. adjective phrase qualifying \u2018Lucky\u2019",
+            " B. adverb phrase modifying \u2018ran\u2019",
+            " C. noun phrase object of \u2018ran\u2019",
+            " D. adjective phrase qualifying \u2018door\u2019"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The source says this is an adverb phrase. It describes the action."
+    },
+    {
+        "question": "The message delivered in time was helpful. (delivered in time)",
+        "options": [
+            "A. adjective phrase qualifying \u2018message\u2019",
+            " B. adverb phrase modifying \u2018was\u2019",
+            " C. noun phrase subject of \u2018was\u2019",
+            " D. adjective clause qualifying \u2018message\u2019"
+        ],
+        "correctAnswer": "A",
+        "explanation": "It describes the message. It tells us about the message."
+    }
+]

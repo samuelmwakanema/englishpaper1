@@ -1,0 +1,552 @@
+[
+    {
+        "question": "Makala makes ________ stools at his workshop.",
+        "options": [
+            "A. beautiful wooden rectangular",
+            " B. wooden beautiful rectangular",
+            " C. beautiful rectangular wooden",
+            " D. rectangular beautiful wooden"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We put words in this order: Opinion (beautiful), then Shape (rectangular), then Material (wooden)."
+    },
+    {
+        "question": "Nashawa bought a ________ walking stick for her grandfather.",
+        "options": [
+            "A. long brown metal",
+            " B. brown long metal",
+            " C. metal long brown",
+            " D. brown metal long"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The correct order is Size (long), followed by Colour (brown), and then Material (metal)."
+    },
+    {
+        "question": "Chikondi narrated to the children ________ stories.",
+        "options": [
+            "A. exciting traditional moral",
+            " B. moral exciting traditional",
+            " C. traditional moral exciting",
+            " D. exciting moral traditional"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Opinion (exciting) first, then Origin (traditional), and finally Purpose (moral)."
+    },
+    {
+        "question": "The hunter built himself a ________ mud house.",
+        "options": [
+            "A. simple round small",
+            " B. round small simple",
+            " C. simple small round",
+            " D. small simple round"
+        ],
+        "correctAnswer": "D",
+        "explanation": "According to the source, we use Size (small), then Opinion (simple), and then Shape (round)."
+    },
+    {
+        "question": "Chimwemwe has bought a ________ jersey.",
+        "options": [
+            "A. beautiful tight Dutch",
+            " B. Dutch tight beautiful",
+            " C. tight Dutch beautiful",
+            " D. beautiful Dutch tight"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (beautiful) first, then Shape (tight), and finally Origin (Dutch)."
+    },
+    {
+        "question": "The meeting would be held under the ________ tree.",
+        "options": [
+            "A. tall old green huge",
+            " B. old tall huge green",
+            " C. green huge tall old",
+            " D. huge tall old green"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The right order is Size (huge), then Shape (tall), then Age (old), and finally Colour (green)."
+    },
+    {
+        "question": "Naduwe brought ________ plates for the function.",
+        "options": [
+            "A. blue large plastic round",
+            " B. large plastic blue round",
+            " C. round blue large plastic",
+            " D. large round blue plastic"
+        ],
+        "correctAnswer": "D",
+        "explanation": "We put Size (large) first, then Shape (round), then Colour (blue), and Material (plastic) last."
+    },
+    {
+        "question": "We took ________ farmers to the meeting.",
+        "options": [
+            "A. brilliant practising local",
+            " B. local practising brilliant",
+            " C. practising brilliant local",
+            " D. brilliant local practising"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The order is Opinion (brilliant) first, then Origin (local), and Purpose (practising) last."
+    },
+    {
+        "question": "We saw a ________ knife at the museum.",
+        "options": [
+            "A. black Chewa pointed hunting",
+            " B. pointed black Chewa hunting",
+            " C. pointed hunting black Chewa",
+            " D. black pointed hunting Chewa"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use Shape (pointed) first, then Colour (black), then Origin (Chewa), and finally Purpose (hunting)."
+    },
+    {
+        "question": "Most women go for ________ pots.",
+        "options": [
+            "A. archaic round foreign aluminium",
+            " B. round archaic aluminium foreign",
+            " C. foreign archaic round aluminium",
+            " D. archaic foreign aluminium round"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Age/Opinion (archaic) first, then Shape (round), then Origin (foreign), and Material (aluminium) last."
+    },
+    {
+        "question": "Bengo owns ________ land.",
+        "options": [
+            "A. an arable vast square",
+            " B. a vast square arable",
+            " C. a vast arable square",
+            " D. an arable square vast"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The correct sequence is Size (vast) first, then Shape (square), and finally Use/Purpose (arable)."
+    },
+    {
+        "question": "She has married a ________ man.",
+        "options": [
+            "A. handsome youthful tall",
+            " B. tall handsome youthful",
+            " C. handsome tall youthful",
+            " D. tall youthful handsome"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use Opinion (handsome) first, then Size (tall), and finally Age (youthful)."
+    },
+    {
+        "question": "They are building a ________ room.",
+        "options": [
+            "A. big comfortable reading",
+            " B. big reading comfortable",
+            " C. comfortable big reading",
+            " D. comfortable reading big"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use Opinion (comfortable) first, then Size (big), and Purpose (reading) last."
+    },
+    {
+        "question": "The flower girls carried ________ baskets.",
+        "options": [
+            "A. tiny decorated bamboo",
+            " B. decorated tiny bamboo",
+            " C. tiny bamboo decorated",
+            " D. decorated bamboo tiny"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Size (tiny) first, then Opinion (decorated), and finally Material (bamboo)."
+    },
+    {
+        "question": "The shop is now stocking ________ jewels.",
+        "options": [
+            "A. precious new golden",
+            " B. new precious golden",
+            " C. golden precious new",
+            " D. new golden precious"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Opinion (precious) first, then Age (new), and finally Material (golden)."
+    },
+    {
+        "question": "The ________ animal made the film exciting.",
+        "options": [
+            "A. enormous land scary",
+            " B. scary enormous land",
+            " C. land scary enormous",
+            " D. enormous scary land"
+        ],
+        "correctAnswer": "D",
+        "explanation": "We use Size (enormous) first, then Opinion (scary), and Type (land) last."
+    },
+    {
+        "question": "I bought a ________ carpet for my living room.",
+        "options": [
+            "A. beautiful red Turkish",
+            " B. red Turkish beautiful",
+            " C. Turkish beautiful red",
+            " D. beautiful Turkish red"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (beautiful) first, then Colour (red), and finally Origin (Turkish)."
+    },
+    {
+        "question": "My father has an ________ car.",
+        "options": [
+            "A. expensive small Italian",
+            " B. small expensive Italian",
+            " C. expensive Italian small",
+            " D. Italian expensive small"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The correct order is Opinion (expensive), then Size (small), and then Origin (Italian)."
+    },
+    {
+        "question": "We found ________ coins in the old chest.",
+        "options": [
+            "A. small old round silver",
+            " B. silver small old round",
+            " C. old small round silver",
+            " D. round small old silver"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Size (small) first, then Age (old), Shape (round), and Material (silver) last."
+    },
+    {
+        "question": "She wore a ________ dress to the party.",
+        "options": [
+            "A. magnificent green silk",
+            " B. green magnificent silk",
+            " C. magnificent silk green",
+            " D. silk magnificent green"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (magnificent) first, then Colour (green), and finally Material (silk)."
+    },
+    {
+        "question": "He lives in a ________ house near the city center.",
+        "options": [
+            "A. large modern white",
+            " B. modern white large",
+            " C. white large modern",
+            " D. large white modern"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Size (large) first, then Age (modern), and then Colour (white)."
+    },
+    {
+        "question": "The cat chased a ________ mouse across the floor.",
+        "options": [
+            "A. tiny quick brown",
+            " B. quick tiny brown",
+            " C. brown quick tiny",
+            " D. tiny brown quick"
+        ],
+        "correctAnswer": "A",
+        "explanation": "In this case, we put Size (tiny) before Opinion (quick) and Colour (brown)."
+    },
+    {
+        "question": "I need a ________ knife to cut the meat.",
+        "options": [
+            "A. sharp new metal",
+            " B. metal sharp new",
+            " C. sharp metal new",
+            " D. new sharp metal"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The sequence is Opinion (sharp) first, then Age (new), and Material (metal) last."
+    },
+    {
+        "question": "We saw ________ clouds gathering before the storm.",
+        "options": [
+            "A. enormous black rain",
+            " B. rain enormous black",
+            " C. enormous rain black",
+            " D. black rain enormous"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Size (enormous) first, then Colour (black), and Purpose (rain) last."
+    },
+    {
+        "question": "He gave her a ________ ring on their anniversary.",
+        "options": [
+            "A. beautiful gold engagement",
+            " B. engagement beautiful gold",
+            " C. gold beautiful engagement",
+            " D. beautiful engagement gold"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Opinion (beautiful) first, then Material (gold), and Purpose (engagement) last."
+    },
+    {
+        "question": "The students use ________ pencils for their diagrams.",
+        "options": [
+            "A. long thin yellow",
+            " B. thin yellow long",
+            " C. long yellow thin",
+            " D. yellow thin long"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Size (long), followed by Shape (thin), and then Colour (yellow)."
+    },
+    {
+        "question": "They bought ________ furniture for their new home.",
+        "options": [
+            "A. expensive antique wooden",
+            " B. antique expensive wooden",
+            " C. expensive wooden antique",
+            " D. wooden expensive antique"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (expensive) first, then Age (antique), and Material (wooden) last."
+    },
+    {
+        "question": "I like that ________ table in the garden.",
+        "options": [
+            "A. round black plastic",
+            " B. black plastic round",
+            " C. round plastic black",
+            " D. plastic black round"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Shape (round) first, then Colour (black), and finally Material (plastic)."
+    },
+    {
+        "question": "She has ________ hair that reaches her waist.",
+        "options": [
+            "A. long smooth blonde",
+            " B. smooth long blonde",
+            " C. blonde long smooth",
+            " D. long blonde smooth"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The correct sequence is Size (long) first, then Opinion (smooth), and Colour (blonde) last."
+    },
+    {
+        "question": "We walked along a ________ path in the village.",
+        "options": [
+            "A. narrow leafy country",
+            " B. leafy narrow country",
+            " C. country narrow leafy",
+            " D. narrow country leafy"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Shape (narrow) first, then Opinion (leafy), and Type (country) last."
+    },
+    {
+        "question": "He was wearing ________ shoes at the wedding.",
+        "options": [
+            "A. new black leather",
+            " B. black new leather",
+            " C. leather new black",
+            " D. new leather black"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Age (new) first, then Colour (black), and finally Material (leather)."
+    },
+    {
+        "question": "The chef made a ________ cake for the graduation.",
+        "options": [
+            "A. delicious large round",
+            " B. large round delicious",
+            " C. delicious round large",
+            " D. round delicious large"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Opinion (delicious) first, then Size (large), and Shape (round) last."
+    },
+    {
+        "question": "I found an ________ book in the library.",
+        "options": [
+            "A. interesting old history",
+            " B. history interesting old",
+            " C. interesting history old",
+            " D. old history interesting"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (interesting) first, then Age (old), and Purpose (history) last."
+    },
+    {
+        "question": "The lady carried a ________ bag to the market.",
+        "options": [
+            "A. small pretty red",
+            " B. pretty small red",
+            " C. small red pretty",
+            " D. red small pretty"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use Opinion (pretty) first, then Size (small), and Colour (red) last."
+    },
+    {
+        "question": "It was a ________ day in Mangochi.",
+        "options": [
+            "A. lovely sunny warm",
+            " B. warm lovely sunny",
+            " C. sunny warm lovely",
+            " D. lovely warm sunny"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (lovely) first, then Quality (sunny), and Temperature (warm) last."
+    },
+    {
+        "question": "We need ________ chairs for the guests.",
+        "options": [
+            "A. six comfortable wooden",
+            " B. comfortable six wooden",
+            " C. wooden six comfortable",
+            " D. six wooden comfortable"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Number (six) first, then Opinion (comfortable), and Material (wooden) last."
+    },
+    {
+        "question": "They own ________ kittens.",
+        "options": [
+            "A. two tiny white",
+            " B. tiny two white",
+            " C. two white tiny",
+            " D. white tiny two"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Number (two) first, then Size (tiny), and Colour (white) last."
+    },
+    {
+        "question": "I saw a ________ bird in the forest.",
+        "options": [
+            "A. strange bright blue",
+            " B. bright blue strange",
+            " C. blue strange bright",
+            " D. strange blue bright"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Opinion (strange) first, then Quality (bright), and Colour (blue) last."
+    },
+    {
+        "question": "He bought a ________ watch from the store.",
+        "options": [
+            "A. valuable Swiss gold",
+            " B. Swiss valuable gold",
+            " C. valuable gold Swiss",
+            " D. gold Swiss valuable"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (valuable) first, then Origin (Swiss), and Material (gold) last."
+    },
+    {
+        "question": "She found ________ shells on the beach.",
+        "options": [
+            "A. beautiful small sea",
+            " B. small beautiful sea",
+            " C. sea beautiful small",
+            " D. beautiful sea small"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (beautiful) first, then Size (small), and Type (sea) last."
+    },
+    {
+        "question": "They live in ________ apartments in Lilongwe.",
+        "options": [
+            "A. spacious modern city",
+            " B. city spacious modern",
+            " C. modern spacious city",
+            " D. spacious city modern"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (spacious) first, then Age (modern), and Type (city) last."
+    },
+    {
+        "question": "We saw ________ mountains in the distance.",
+        "options": [
+            "A. huge gray cloud-covered",
+            " B. gray huge cloud-covered",
+            " C. cloud-covered huge gray",
+            " D. huge cloud-covered gray"
+        ],
+        "correctAnswer": "D",
+        "explanation": "We list Size (huge) first, then Quality (cloud-covered), and Colour (gray) last."
+    },
+    {
+        "question": "The girl has a ________ smile.",
+        "options": [
+            "A. sweet little innocent",
+            " B. innocent sweet little",
+            " C. little sweet innocent",
+            " D. sweet innocent little"
+        ],
+        "correctAnswer": "D",
+        "explanation": "We use Opinion (sweet), then Opinion (innocent), and Size (little) last."
+    },
+    {
+        "question": "I want a ________ phone for my birthday.",
+        "options": [
+            "A. new thin digital",
+            " B. thin new digital",
+            " C. digital thin new",
+            " D. new digital thin"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We list Age (new) first, then Shape (thin), and Type (digital) last."
+    },
+    {
+        "question": "He used a ________ tool to fix the engine.",
+        "options": [
+            "A. useful small metal",
+            " B. small metal useful",
+            " C. useful metal small",
+            " D. metal small useful"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (useful) first, then Size (small), and Material (metal) last."
+    },
+    {
+        "question": "The teacher told ________ stories to the class.",
+        "options": [
+            "A. funny adventurous long",
+            " B. adventurous funny long",
+            " C. funny long adventurous",
+            " D. long funny adventurous"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use Opinion (funny) first, then Size (long), and Type (adventurous) last."
+    },
+    {
+        "question": "We watched an ________ movie last night.",
+        "options": [
+            "A. exciting new action",
+            " B. new exciting action",
+            " C. action new exciting",
+            " D. exciting action new"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (exciting) first, then Age (new), and Type (action) last."
+    },
+    {
+        "question": "She has a ________ cat called Simba.",
+        "options": [
+            "A. friendly fat ginger",
+            " B. fat friendly ginger",
+            " C. ginger fat friendly",
+            " D. friendly ginger fat"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Opinion (friendly) first, then Shape (fat), and Colour (ginger) last."
+    },
+    {
+        "question": "I bought a ________ blanket for the winter.",
+        "options": [
+            "A. thick warm woollen",
+            " B. warm thick woollen",
+            " C. thick woollen warm",
+            " D. woollen thick warm"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use Size (thick) first, then Quality (warm), and Material (woollen) last."
+    },
+    {
+        "question": "He lives in a ________ building downtown.",
+        "options": [
+            "A. tall ugly brick",
+            " B. ugly tall brick",
+            " C. brick tall ugly",
+            " D. tall brick ugly"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use Opinion (ugly) first, then Size (tall), and Material (brick) last."
+    }
+]

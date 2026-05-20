@@ -1,0 +1,552 @@
+[
+    {
+        "question": "\u201cPlease be quiet. I ________ my English home-work right now,\u201d said Chimwemwe.",
+        "options": [
+            "A. work",
+            " B. worked",
+            " C. am working",
+            " D. have worked"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The words \"right now\" mean the action is happening at this moment, so we use the present continuous tense."
+    },
+    {
+        "question": "The earth ________ around the sun.",
+        "options": [
+            "A. goes",
+            " B. go",
+            " C. is going",
+            " D. has gone"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a fact that is always true, so we use the simple present tense."
+    },
+    {
+        "question": "By the time the guest of honour arrived, the students ________ for two hours.",
+        "options": [
+            "A. waited",
+            " B. will be waiting",
+            " C. had been waiting",
+            " D. are waiting"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action was happening for a long time before another action in the past, so we use the past perfect continuous."
+    },
+    {
+        "question": "I ________ this shirt at the market last year.",
+        "options": [
+            "A. buy",
+            " B. bought",
+            " C. have bought",
+            " D. had bought"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Last year\" is a finished time in the past, so we use the simple past tense."
+    },
+    {
+        "question": "If I ________ my father today, he would receive the letter tomorrow.",
+        "options": [
+            "A. write",
+            " B. wrote",
+            " C. will write",
+            " D. have written"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence (not real). We use the simple past tense in the \"if\" part."
+    },
+    {
+        "question": "Look! The sun ________ over the Ndirande hills.",
+        "options": [
+            "A. rises",
+            " B. rose",
+            " C. is rising",
+            " D. has risen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The word \"Look!\" tells us the action is happening at this moment, so we use the present continuous."
+    },
+    {
+        "question": "By next March, we ________ in this village for four years.",
+        "options": [
+            "A. will live",
+            " B. will be living",
+            " C. will have been living",
+            " D. have lived"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use the future perfect continuous to show how long an action will have lasted by a certain future time."
+    },
+    {
+        "question": "The plane ________ at 3:30 p.m. according to the fixed schedule.",
+        "options": [
+            "A. arrives",
+            " B. will be arriving",
+            " C. arrived",
+            " D. is arriving"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use the simple present tense for things that happen on a timetable or schedule."
+    },
+    {
+        "question": "I ________ a lot of interesting people since I moved to the city.",
+        "options": [
+            "A. met",
+            " B. have met",
+            " C. meet",
+            " D. was meeting"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the present perfect because the action started in the past and is still true or important now."
+    },
+    {
+        "question": "If the message ________ in time, she would have been prepared for the interview.",
+        "options": [
+            "A. was sent",
+            " B. is sent",
+            " C. has been sent",
+            " D. had been sent"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence (about the past). We use the past perfect in the \"if\" part."
+    },
+    {
+        "question": "\u201cI ________ you one of these days, I expect,\u201d said the teacher.",
+        "options": [
+            "A. see",
+            " B. saw",
+            " C. will be seeing",
+            " D. have seen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The teacher is talking about a future event that is likely to happen in the normal course of things."
+    },
+    {
+        "question": "She realized she didn\u2019t need the book which she ________ the previous day.",
+        "options": [
+            "A. has just bought",
+            " B. had just bought",
+            " C. just bought",
+            " D. was buying"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This action happened before another action in the past, so we use the past perfect."
+    },
+    {
+        "question": "We ________ our breakfast half an hour ago.",
+        "options": [
+            "A. finished",
+            " B. have finished",
+            " C. had finished",
+            " D. finish"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Half an hour ago\" is a specific time that has finished, so we use the simple past."
+    },
+    {
+        "question": "While the guests ________, the lights suddenly went out.",
+        "options": [
+            "A. are eating",
+            " B. were eating",
+            " C. ate",
+            " D. have eaten"
+        ],
+        "correctAnswer": "B",
+        "explanation": "One action was happening when another action interrupted it, so we use the past continuous."
+    },
+    {
+        "question": "By the time I sit for the MSCE examinations next year, I ________ English for ten years.",
+        "options": [
+            "A. will study",
+            " B. will have studied",
+            " C. would have studied",
+            " D. am studying"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The future perfect shows that an action will be completed by a certain time in the future."
+    },
+    {
+        "question": "My brother ________ in a bank from 2010 to 2018.",
+        "options": [
+            "A. work",
+            " B. works",
+            " C. worked",
+            " D. has worked"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action happened over a set period of time that is now finished, so we use the simple past."
+    },
+    {
+        "question": "I ________ my glasses again; have you seen them?",
+        "options": [
+            "A. lost",
+            " B. have lost",
+            " C. lose",
+            " D. had lost"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the present perfect for an action that happened recently and still affects the present."
+    },
+    {
+        "question": "Unless the army worms ________ controlled, the farmers will have a poor harvest.",
+        "options": [
+            "A. are",
+            " B. were",
+            " C. will be",
+            " D. have been"
+        ],
+        "correctAnswer": "A",
+        "explanation": "In a real \"if\" or \"unless\" sentence about the future, we use the simple present in the first part."
+    },
+    {
+        "question": "When I first met him, he ________ for a degree at the university.",
+        "options": [
+            "A. studied",
+            " B. has been studying",
+            " C. had been studying",
+            " D. will study"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action was going on for a time before the meeting in the past, so we use the past perfect continuous."
+    },
+    {
+        "question": "I ________ to speak to the manager, please.",
+        "options": [
+            "A. want",
+            " B. am wanting",
+            " C. have wanted",
+            " D. was wanting"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Want\" is a word for a state or feeling. We use the simple present for it."
+    },
+    {
+        "question": "My dog is very silly; he ________ out into the road.",
+        "options": [
+            "A. always ran",
+            " B. is always running",
+            " C. has always run",
+            " D. will always run"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the present continuous with \"always\" to talk about a habit that is annoying."
+    },
+    {
+        "question": "By the end of this month, I ________ here for five years.",
+        "options": [
+            "A. will work",
+            " B. am working",
+            " C. will have worked",
+            " D. worked"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This shows an action that will be completed by a certain date in the future."
+    },
+    {
+        "question": "The school management ________ everyone who took part in the riots.",
+        "options": [
+            "A. expelled",
+            " B. has expelled",
+            " C. expels",
+            " D. was expelling"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The school has already finished this action, and it is important news now, so we use the present perfect."
+    },
+    {
+        "question": "If I ________ you, I would not accept that offer.",
+        "options": [
+            "A. am",
+            " B. was",
+            " C. were",
+            " D. had been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"were\" with \"if\" to talk about something that is not true or real."
+    },
+    {
+        "question": "The two ________ by the time they finish college.",
+        "options": [
+            "A. will have married",
+            " B. will marry",
+            " C. would have married",
+            " D. are marrying"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This shows an action that will be finished before another event in the future."
+    },
+    {
+        "question": "I ________ something burning in the kitchen!",
+        "options": [
+            "A. smell",
+            " B. am smelling",
+            " C. have smelled",
+            " D. smelled"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Smell\" is a word for a sense. We usually use the simple present tense for it."
+    },
+    {
+        "question": "After the civic awareness campaign, the community ________ the dangers of child labour.",
+        "options": [
+            "A. understands",
+            " B. will understand",
+            " C. is understanding",
+            " D. understood"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This talks about what people will know in the future as a result of the campaign."
+    },
+    {
+        "question": "He said he ________ the school the following week.",
+        "options": [
+            "A. will visit",
+            " B. would visit",
+            " C. visits",
+            " D. has visited"
+        ],
+        "correctAnswer": "B",
+        "explanation": "When we report what someone said, we change \"will\" to \"would\" for future events."
+    },
+    {
+        "question": "\u201cYou ________ the cup if you drop it,\u201d warned the matron.",
+        "options": [
+            "A. break",
+            " B. would break",
+            " C. will break",
+            " D. broke"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a first conditional sentence. It shows a real result that will happen in the future."
+    },
+    {
+        "question": "We ________ to Mchinji when we had a mechanical breakdown.",
+        "options": [
+            "A. drove",
+            " B. were driving",
+            " C. have been driving",
+            " D. drive"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This action was in progress in the past when something else happened."
+    },
+    {
+        "question": "I ________ with my sister for a few weeks before I went to Botswana.",
+        "options": [
+            "A. stay",
+            " B. have stayed",
+            " C. had stayed",
+            " D. would stay"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action happened before another past action, so we use the past perfect."
+    },
+    {
+        "question": "The train ________ before we reached the station.",
+        "options": [
+            "A. left",
+            " B. had left",
+            " C. will leave",
+            " D. leaves"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The train left first, then we arrived. We use past perfect for the first action."
+    },
+    {
+        "question": "She ________ as a nurse since 2015.",
+        "options": [
+            "A. is working",
+            " B. worked",
+            " C. has been working",
+            " D. works"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action started in the past and is still going on, so we use the present perfect continuous."
+    },
+    {
+        "question": "I wish I ________ where he lives now.",
+        "options": [
+            "A. know",
+            " B. knew",
+            " C. have known",
+            " D. will know"
+        ],
+        "correctAnswer": "B",
+        "explanation": "After the word \"wish,\" we use the simple past to talk about something we want now."
+    },
+    {
+        "question": "When Bauleni ________ football tomorrow, Chimwemwe will be listening to the radio.",
+        "options": [
+            "A. plays",
+            " B. will play",
+            " C. played",
+            " D. will be playing"
+        ],
+        "correctAnswer": "A",
+        "explanation": "In sentences with \"when\" talking about the future, we use the simple present tense."
+    },
+    {
+        "question": "\u201cThe meeting ________ on as some members break for tea,\u201d said the leader.",
+        "options": [
+            "A. will go",
+            " B. will be going",
+            " C. would go",
+            " D. went"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This describes an action that will be happening at a certain time in the future."
+    },
+    {
+        "question": "The pilot was nervous because he ________ before.",
+        "options": [
+            "A. hasn\u2019t flown",
+            " B. didn\u2019t fly",
+            " C. hadn\u2019t flown",
+            " D. wasn\u2019t flying"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The fact that he did not fly happened before he became nervous, so we use the past perfect."
+    },
+    {
+        "question": "My children ________ rice to nsima.",
+        "options": [
+            "A. prefer",
+            " B. are preferring",
+            " C. have preferred",
+            " D. preferred"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Prefer\" is a word for a feeling or state. We use the simple present for it."
+    },
+    {
+        "question": "It ________ since early morning.",
+        "options": [
+            "A. rained",
+            " B. is raining",
+            " C. has been raining",
+            " D. rains"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The rain started in the past and is still falling now, so we use the present perfect continuous."
+    },
+    {
+        "question": "I ________ to listen to my grandfather\u2019s wise sayings when I was young.",
+        "options": [
+            "A. use",
+            " B. used",
+            " C. am used",
+            " D. was used"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use \"used to\" to talk about habits that we had in the past but not now."
+    },
+    {
+        "question": "At this time tomorrow, I ________ on the beach in Mangochi.",
+        "options": [
+            "A. will sit",
+            " B. will be sitting",
+            " C. sit",
+            " D. sat"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This describes an action that will be happening at a specific time in the future."
+    },
+    {
+        "question": "He thanked me for what I ________ for him.",
+        "options": [
+            "A. do",
+            " B. did",
+            " C. had done",
+            " D. have done"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The action of doing something happened before he said thank you, so we use the past perfect."
+    },
+    {
+        "question": "If she ________ hard, she will pass the examinations.",
+        "options": [
+            "A. works",
+            " B. worked",
+            " C. will work",
+            " D. has worked"
+        ],
+        "correctAnswer": "A",
+        "explanation": "In a real \"if\" sentence about the future, we use the simple present in the first part."
+    },
+    {
+        "question": "By the time Tiyamike reached home, they ________ the food.",
+        "options": [
+            "A. ate",
+            " B. (not given)",
+            " C. had eaten",
+            " D. were eating"
+        ],
+        "correctAnswer": "C",
+        "explanation": "They finished eating before she got home, so we use the past perfect for the first action."
+    },
+    {
+        "question": "It\u2019s high time Vitumbiko ________ another job.",
+        "options": [
+            "A. finds",
+            " B. found",
+            " C. should find",
+            " D. must find"
+        ],
+        "correctAnswer": "B",
+        "explanation": "After the phrase \"It's high time,\" we always use the simple past tense."
+    },
+    {
+        "question": "The situation ________ into a farce as the trial continued.",
+        "options": [
+            "A. turned",
+            " B. is turning",
+            " C. was turning",
+            " D. has turned"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This action was happening as the trial was also going on in the past."
+    },
+    {
+        "question": "He ________ more success if he had tried harder.",
+        "options": [
+            "A. will have",
+            " B. would have",
+            " C. would have had",
+            " D. had"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence about a past event that did not happen."
+    },
+    {
+        "question": "I ________ the letter as soon as it is possible.",
+        "options": [
+            "A. shall write",
+            " B. wrote",
+            " C. write",
+            " D. have written"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use \"shall\" or \"will\" to talk about a promise or a plan for the future."
+    },
+    {
+        "question": "\u201cI ________ my duty,\u201d the soldier declared after the battle.",
+        "options": [
+            "A. do",
+            " B. did",
+            " C. have done",
+            " D. will do"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The soldier is talking about a finished action that is important at the time he is speaking."
+    },
+    {
+        "question": "They ________ and praying in the church when we passed by.",
+        "options": [
+            "A. are singing",
+            " B. were singing",
+            " C. sang",
+            " D. have been singing"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This action was happening in the past when another action took place."
+    }
+]

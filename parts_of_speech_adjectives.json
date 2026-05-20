@@ -1,0 +1,332 @@
+[
+    {
+        "question": "Which of the two coats is ________?",
+        "options": [
+            "A. warm",
+            " B. warmer",
+            " C. warmest",
+            " D. more warm"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the \"er\" ending when we compare only two things."
+    },
+    {
+        "question": "Makala makes ________ stools at his workshop.",
+        "options": [
+            "A. beautiful wooden rectangular",
+            " B. wooden beautiful rectangular",
+            " C. beautiful rectangular wooden",
+            " D. rectangular beautiful wooden"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Adjectives follow this order: Opinion (beautiful) then Shape (rectangular) and then Material (wooden)."
+    },
+    {
+        "question": "This is the ________ building in the entire town.",
+        "options": [
+            "A. old",
+            " B. older",
+            " C. oldest",
+            " D. most old"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use the \"est\" ending when comparing one thing to many others in a group."
+    },
+    {
+        "question": "The girls were afraid of the snake. (afraid)",
+        "options": [
+            "A. Noun",
+            " B. Adjective",
+            " C. Verb",
+            " D. Adverb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word is an adjective because it describes how the girls feel."
+    },
+    {
+        "question": "Nashawa bought a ________ walking stick for her grandfather.",
+        "options": [
+            "A. long brown metal",
+            " B. brown long metal",
+            " C. metal long brown",
+            " D. long metal brown"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The correct order is Size (long) then Colour (brown) and then Material (metal)."
+    },
+    {
+        "question": "The room was big enough for the meeting. (big)",
+        "options": [
+            "A. Adverb",
+            " B. Noun",
+            " C. Adjective",
+            " D. Conjunction"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This word describes the size of the room so it is an adjective."
+    },
+    {
+        "question": "Of all the birds, the cheetah is the ________ runner.",
+        "options": [
+            "A. fast",
+            " B. faster",
+            " C. fastest",
+            " D. more fast"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Use the \"est\" form to show that one thing is the best out of a whole group."
+    },
+    {
+        "question": "Chikondi narrated to the children ________ stories.",
+        "options": [
+            "A. exciting traditional moral",
+            " B. moral exciting traditional",
+            " C. traditional moral exciting",
+            " D. exciting moral traditional"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Opinion (exciting) then Origin (traditional) and then Purpose (moral)."
+    },
+    {
+        "question": "The water in that stream is ________ and pure.",
+        "options": [
+            "A. sweet",
+            " B. sweetly",
+            " C. sweetness",
+            " D. sweeting"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use a simple adjective after the word \"is\" to describe the water."
+    },
+    {
+        "question": "He made himself a ________ sandwich for lunch.",
+        "options": [
+            "A. huger",
+            " B. huge",
+            " C. hugest",
+            " D. most huge"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the basic word \"huge\" to describe one thing without comparing it."
+    },
+    {
+        "question": "Those books on Asian art are mine. (Asian)",
+        "options": [
+            "A. Common adjective",
+            " B. Proper adjective",
+            " C. Demonstrative adjective",
+            " D. Descriptive adjective"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a proper adjective because it comes from the name of a place."
+    },
+    {
+        "question": "The questions were easier than we expected. (easier)",
+        "options": [
+            "A. Noun",
+            " B. Adjective",
+            " C. Adverb",
+            " D. Verb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word describes the difficulty of the questions so it is an adjective."
+    },
+    {
+        "question": "Which mountain is ________, Mount Everest or the Matterhorn?",
+        "options": [
+            "A. high",
+            " B. higher",
+            " C. highest",
+            " D. most high"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the \"er\" ending because we are comparing exactly two mountains."
+    },
+    {
+        "question": "The hunter built himself a ________ mud house.",
+        "options": [
+            "A. simple small round",
+            " B. round small simple",
+            " C. small simple round",
+            " D. simple round small"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The correct order is Size (small) then Opinion (simple) and then Shape (round)."
+    },
+    {
+        "question": "She received a written apology. (written)",
+        "options": [
+            "A. Verb",
+            " B. Preposition",
+            " C. Adjective",
+            " D. Adverb"
+        ],
+        "correctAnswer": "C",
+        "explanation": "In this sentence the word \"written\" describes the apology so it acts as an adjective."
+    },
+    {
+        "question": "The students appeared ________ before the start of the exams.",
+        "options": [
+            "A. calm",
+            " B. calmly",
+            " C. calmness",
+            " D. calming"
+        ],
+        "correctAnswer": "A",
+        "explanation": "After a verb like \"appeared\" we use an adjective to describe the subject."
+    },
+    {
+        "question": "I have bought a ________ Dutch jersey.",
+        "options": [
+            "A. beautiful tight",
+            " B. tight beautiful",
+            " C. beautiful Dutch tight",
+            " D. tight Dutch beautiful"
+        ],
+        "correctAnswer": "A",
+        "explanation": "An opinion word like \"beautiful\" always comes before a size or shape word like \"tight\"."
+    },
+    {
+        "question": "The shop is now stocking ________ jewels.",
+        "options": [
+            "A. precious new golden",
+            " B. new precious golden",
+            " C. golden precious new",
+            " D. precious golden new"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Opinion (precious) then Age (new) and then Material (golden)."
+    },
+    {
+        "question": "This is the ________ book I have ever read.",
+        "options": [
+            "A. bad",
+            " B. worse",
+            " C. worst",
+            " D. most bad"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"Worst\" is the correct form when comparing one book to all other books."
+    },
+    {
+        "question": "The Hawaiian dancers wore colorful costumes. (Hawaiian)",
+        "options": [
+            "A. Common noun",
+            " B. Proper noun",
+            " C. Proper adjective",
+            " D. Descriptive adjective"
+        ],
+        "correctAnswer": "C",
+        "explanation": "It is a proper adjective because it is made from the name of a place."
+    },
+    {
+        "question": "The front tire looks ________ to me.",
+        "options": [
+            "A. flat",
+            " B. flatly",
+            " C. flatter",
+            " D. flattest"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use the simple adjective \"flat\" after the verb \"looks\" to describe the tire."
+    },
+    {
+        "question": "The ________ animal made the film exciting.",
+        "options": [
+            "A. enormous land scary",
+            " B. scary enormous land",
+            " C. land scary enormous",
+            " D. enormous scary land"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Adjectives follow this order: Size (enormous) then Opinion (scary) and then Type (land)."
+    },
+    {
+        "question": "He bought his wife some ________ Bata sandals.",
+        "options": [
+            "A. new green leather",
+            " B. green leather new",
+            " C. green new leather",
+            " D. new leather green"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The order is Age (new) then Colour (green) and then Material (leather)."
+    },
+    {
+        "question": "Track is my favorite sport. (favorite)",
+        "options": [
+            "A. Noun",
+            " B. Adjective",
+            " C. Verb",
+            " D. Adverb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word is an adjective because it describes which sport is liked best."
+    },
+    {
+        "question": "These apples are ________ than those ones.",
+        "options": [
+            "A. sweet",
+            " B. sweeter",
+            " C. sweetest",
+            " D. more sweet"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Use the \"er\" ending to compare one group of apples to another group."
+    },
+    {
+        "question": "I found my friend reading a ________ story.",
+        "options": [
+            "A. new detective intriguing",
+            " B. detective new intriguing",
+            " C. intriguing new detective",
+            " D. intriguing detective new"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The order is Opinion (intriguing) then Age (new) and then Purpose (detective)."
+    },
+    {
+        "question": "The ancient Egyptian exhibit was fascinating. (ancient)",
+        "options": [
+            "A. Proper noun",
+            " B. Descriptive adjective",
+            " C. Demonstrative adjective",
+            " D. Proper adjective"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Ancient\" is a descriptive adjective because it tells us about the age of the exhibit."
+    },
+    {
+        "question": "Which can run ________, the cheetah or the lion?",
+        "options": [
+            "A. rapid",
+            " B. rapidly",
+            " C. more rapidly",
+            " D. most rapidly"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"more rapidly\" because we are comparing how two different animals run."
+    },
+    {
+        "question": "He was a man of ________ ambition.",
+        "options": [
+            "A. great",
+            " B. greatly",
+            " C. greatness",
+            " D. greating"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use the adjective \"great\" to describe the noun \"ambition\"."
+    },
+    {
+        "question": "She has married a ________ man.",
+        "options": [
+            "A. handsome tall youthful",
+            " B. tall handsome youthful",
+            " C. handsome youthful tall",
+            " D. tall youthful handsome"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The correct sequence is Opinion (handsome) then Age (youthful) and then Size (tall)."
+    }
+]

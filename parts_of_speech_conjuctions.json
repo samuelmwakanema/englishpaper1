@@ -1,0 +1,332 @@
+[
+    {
+        "question": "Although troops had marched all day they fought bravely all night. (Although)",
+        "options": [
+            "A. Coordinating conjunction",
+            " B. Subordinating conjunction",
+            " C. Correlative conjunction",
+            " D. Preposition"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word starts a part of a sentence that cannot stand alone. It is a subordinating conjunction."
+    },
+    {
+        "question": "We must hurry; otherwise we will miss the bus. (otherwise)",
+        "options": [
+            "A. Adjective",
+            " B. Conjunction",
+            " C. Pronoun",
+            " D. Adverb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word is a conjunction because it joins two ideas together in one sentence."
+    },
+    {
+        "question": "You will not get the prize ________ you deserve it.",
+        "options": [
+            "A. if",
+            " B. unless",
+            " C. because",
+            " D. but"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Unless\" is the right word here because it means \"except if\" you deserve it."
+    },
+    {
+        "question": "She got strong credits in both English and Mathematics. (and)",
+        "options": [
+            "A. Verb",
+            " B. Adverb",
+            " C. Conjunction",
+            " D. Adjective"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"And\" is a conjunction because it links the two school subjects together."
+    },
+    {
+        "question": "I will see you on Friday morning unless something serious holds me up. (unless)",
+        "options": [
+            "A. adjective",
+            " B. conjunction",
+            " C. pronoun",
+            " D. adverb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word acts as a conjunction because it connects two parts of the sentence."
+    },
+    {
+        "question": "The train was derailed ________ no one was hurt.",
+        "options": [
+            "A. but",
+            " B. because",
+            " C. so",
+            " D. and"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"But\" is used here to show a difference between the train crashing and no one being hurt."
+    },
+    {
+        "question": "Neither the manager nor his assistants failed in their duty. (Neither... nor)",
+        "options": [
+            "A. Coordinating conjunction",
+            " B. Correlative conjunction",
+            " C. Subordinating conjunction",
+            " D. Preposition"
+        ],
+        "correctAnswer": "B",
+        "explanation": "These are correlative conjunctions because they are words that always work together as a pair."
+    },
+    {
+        "question": "Water ________ oil will not mix.",
+        "options": [
+            "A. but",
+            " B. and",
+            " C. or",
+            " D. so"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"And\" is used to join the two things that do not mix together."
+    },
+    {
+        "question": "I ran fast ________ I missed the train.",
+        "options": [
+            "A. because",
+            " B. but",
+            " C. so",
+            " D. and"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"But\" shows a contrast between running fast and still missing the train."
+    },
+    {
+        "question": "The poor man sold everything except his blanket. (except)",
+        "options": [
+            "A. Adjective",
+            " B. Preposition",
+            " C. Adverb",
+            " D. Conjunction"
+        ],
+        "correctAnswer": "D",
+        "explanation": "In this sentence the word \"except\" is used as a conjunction to show an exception."
+    },
+    {
+        "question": "Catch me ________ you can.",
+        "options": [
+            "A. if",
+            " B. unless",
+            " C. because",
+            " D. until"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"If\" is used here to show that catching the person depends on being able to do it."
+    },
+    {
+        "question": "The room was big enough for the meeting. (enough)",
+        "options": [
+            "A. Noun",
+            " B. Adjective",
+            " C. Pronoun",
+            " D. Adverb"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This word is an adverb because it tells us more about the adjective \"big.\""
+    },
+    {
+        "question": "Be just ________ fear not.",
+        "options": [
+            "A. and",
+            " B. but",
+            " C. or",
+            " D. so"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"And\" is the correct word to join these two pieces of advice together."
+    },
+    {
+        "question": "You can have tea ________ coffee.",
+        "options": [
+            "A. and",
+            " B. but",
+            " C. or",
+            " D. so"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"Or\" is used here because it gives a choice between two different drinks."
+    },
+    {
+        "question": "He failed ________ he did not lose hope.",
+        "options": [
+            "A. but",
+            " B. because",
+            " C. though",
+            " D. so"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"Though\" is used to show that even after failing he still had hope."
+    },
+    {
+        "question": "We cannot start while it is raining. (while)",
+        "options": [
+            "A. Preposition",
+            " B. Adverb",
+            " C. Conjunction",
+            " D. Verb"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"While\" is a conjunction because it joins the two actions that are happening at the same time."
+    },
+    {
+        "question": "I did not go to work ________ I was ill.",
+        "options": [
+            "A. but",
+            " B. because",
+            " C. or",
+            " D. although"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Because\" is used to give the reason why the person did not go to work."
+    },
+    {
+        "question": "He is witty but vulgar. (but)",
+        "options": [
+            "A. Adjective",
+            " B. Adverb",
+            " C. Conjunction",
+            " D. Preposition"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"But\" is a conjunction because it joins two different descriptions of the person."
+    },
+    {
+        "question": "You must work hard ________ you will fail the exam.",
+        "options": [
+            "A. but",
+            " B. and",
+            " C. or",
+            " D. so"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"Or\" is used to show that if you do not work hard something else will happen."
+    },
+    {
+        "question": "I think that you have made a mistake. (that)",
+        "options": [
+            "A. Relative pronoun",
+            " B. Conjunction",
+            " C. Demonstrative pronoun",
+            " D. Adverb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"That\" is a conjunction here because it joins the thought to the rest of the sentence."
+    },
+    {
+        "question": "He fled ________ his pursuers could not follow.",
+        "options": [
+            "A. where",
+            " B. when",
+            " C. because",
+            " D. until"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Where\" is the correct word to show the place he went so others could not follow."
+    },
+    {
+        "question": "I have not seen him since he was a child. (since)",
+        "options": [
+            "A. Adverb",
+            " B. Preposition",
+            " C. Conjunction",
+            " D. Noun"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"Since\" is a conjunction here because it links the time he was a child to the present."
+    },
+    {
+        "question": "Whether you like it or not we are going. (Whether)",
+        "options": [
+            "A. coordinating conjunction",
+            " B. subordinating conjunction",
+            " C. correlative conjunction",
+            " D. relative pronoun"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word starts a part of the sentence that depends on the main part."
+    },
+    {
+        "question": "He is taller ________ his brother.",
+        "options": [
+            "A. than",
+            " B. as",
+            " C. then",
+            " D. over"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Than\" is used when we are comparing the height of two people."
+    },
+    {
+        "question": "He has trial it and is the better for it. (better)",
+        "options": [
+            "A. Definite article",
+            " B. Adverb",
+            " C. Adjective",
+            " D. Conjunction"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This word is an adverb because it describes the state of being after trying something."
+    },
+    {
+        "question": "Make hay ________ the sun shines.",
+        "options": [
+            "A. while",
+            " B. when",
+            " C. until",
+            " D. because"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"While\" is the right word to show that you should do the work while the time is good."
+    },
+    {
+        "question": "He spoke so low ________ I could not hear him.",
+        "options": [
+            "A. that",
+            " B. as",
+            " C. but",
+            " D. and"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"That\" is used to show the result of him speaking very quietly."
+    },
+    {
+        "question": "I ran fast yet I missed the bus. (yet)",
+        "options": [
+            "A. Adverb",
+            " B. Conjunction",
+            " C. Preposition",
+            " D. Adjective"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Yet\" is a conjunction here because it joins two ideas that seem to go against each other."
+    },
+    {
+        "question": "He will succeed ________ he perseveres.",
+        "options": [
+            "A. if",
+            " B. unless",
+            " C. but",
+            " D. although"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"If\" shows that success will happen only when the person keeps trying."
+    },
+    {
+        "question": "I waited ________ the train arrived.",
+        "options": [
+            "A. when",
+            " B. until",
+            " C. since",
+            " D. for"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Until\" is used to show the time when the waiting stopped."
+    }
+]

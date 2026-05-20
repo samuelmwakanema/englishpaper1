@@ -1,0 +1,552 @@
+[
+    {
+        "question": "If Limbikani _________ hard, he will pass the examinations next month.",
+        "options": [
+            "A. work",
+            " B. worked",
+            " C. works",
+            " D. had worked"
+        ],
+        "correctAnswer": "C",
+        "explanation": "In a real \"if\" sentence about the future, we use the simple present tense in the \"if\" part."
+    },
+    {
+        "question": "The mistake could have been avoided if you _________ careful in the first place.",
+        "options": [
+            "A. are",
+            " B. were",
+            " C. have been",
+            " D. had been"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence about the past. We use the past perfect \"had been\" with \"could have been.\""
+    },
+    {
+        "question": "If I _________ my father today, he would receive the letter tomorrow.",
+        "options": [
+            "A. write",
+            " B. wrote",
+            " C. will write",
+            " D. had written"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence (hypothetical). We use the simple past tense in the \"if\" part."
+    },
+    {
+        "question": "Unless the army worms _________ controlled, the farmers will have a poor harvest.",
+        "options": [
+            "A. are",
+            " B. were",
+            " C. will be",
+            " D. have been"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"Unless\" works like \"if not.\" In a real future situation, we use the simple present tense."
+    },
+    {
+        "question": "If the message _________ in time, she would have been prepared for the interview.",
+        "options": [
+            "A. was sent",
+            " B. is sent",
+            " C. has been sent",
+            " D. had been sent"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence about a past event that did not happen. We use the past perfect."
+    },
+    {
+        "question": "\u201cYou _________ the cup if you drop it,\u201d warned the matron.",
+        "options": [
+            "A. break",
+            " B. would break",
+            " C. will break",
+            " D. broke"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a first conditional sentence. It shows a real result that will happen if an action occurs."
+    },
+    {
+        "question": "If I _________ you, I would not accept that job offer.",
+        "options": [
+            "A. am",
+            " B. was",
+            " C. were",
+            " D. had been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"were\" with \"if\" when talking about something that is not true, like being another person."
+    },
+    {
+        "question": "Tamara _________ to the lake if she had had a car.",
+        "options": [
+            "A. would travel",
+            " B. will travel",
+            " C. would have travelled",
+            " D. will have travelled"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence. Since the \"if\" part is past perfect, the main part uses \"would have.\""
+    },
+    {
+        "question": "If we _________ each other again, we will definitely smile.",
+        "options": [
+            "A. see",
+            " B. saw",
+            " C. will see",
+            " D. had seen"
+        ],
+        "correctAnswer": "A",
+        "explanation": "For a real future possibility, we use the simple present tense in the \"if\" part of the sentence."
+    },
+    {
+        "question": "_________ I known the truth, I would not have come here.",
+        "options": [
+            "A. If",
+            " B. Had",
+            " C. Should",
+            " D. Unless"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We can start a third conditional sentence with \"Had\" instead of \"If I had.\""
+    },
+    {
+        "question": "\u201cI _________ to him if I knew his address,\u201d said Chifundo.",
+        "options": [
+            "A. will write",
+            " B. would write",
+            " C. would have written",
+            " D. will have written"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence. Because the \"if\" part is simple past, we use \"would.\""
+    },
+    {
+        "question": "We _________ to Kasungu National Park if our car hadn\u2019t broken down.",
+        "options": [
+            "A. would go",
+            " B. will go",
+            " C. would have gone",
+            " D. had gone"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence about the past. We use \"would have\" plus a past participle."
+    },
+    {
+        "question": "If you _________ in the rain, you will get wet.",
+        "options": [
+            "A. go out",
+            " B. went out",
+            " C. will go out",
+            " D. had gone out"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a real situation. We use the simple present tense in the \"if\" clause for things that are likely."
+    },
+    {
+        "question": "_________ you should see Jennifer, could you tell her about the change?",
+        "options": [
+            "A. If",
+            " B. Had",
+            " C. Unless",
+            " D. Whether"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use \"If\" or \"Should\" to start this request, meaning there is a small chance you might see her."
+    },
+    {
+        "question": "I _________ grateful if you send me the goods as soon as possible.",
+        "options": [
+            "A. would be",
+            " B. will be",
+            " C. shall be",
+            " D. would have been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"shall\" or \"will\" with the first person (\"I\") to talk about a future result."
+    },
+    {
+        "question": "If he _________ our advice, he would not have done things this way.",
+        "options": [
+            "A. seek",
+            " B. seeks",
+            " C. sought",
+            " D. had sought"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The main part is \"would not have done,\" so the \"if\" part must be the past perfect \"had sought.\""
+    },
+    {
+        "question": "Most children _________ if their parents show them more affection.",
+        "options": [
+            "A. behave",
+            " B. will behave",
+            " C. would behave",
+            " D. behaved"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a first conditional sentence. It describes a likely result in the future using \"will.\""
+    },
+    {
+        "question": "If the sun _________ tomorrow, we will go on a picnic.",
+        "options": [
+            "A. shines",
+            " B. is shining",
+            " C. will shine",
+            " D. shone"
+        ],
+        "correctAnswer": "A",
+        "explanation": "In a real situation about tomorrow, we use the simple present tense after the word \"if.\""
+    },
+    {
+        "question": "She would have preached well if she _________ well.",
+        "options": [
+            "A. prepares",
+            " B. prepared",
+            " C. has prepared",
+            " D. had prepared"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence. The \"if\" part requires the past perfect \"had prepared.\""
+    },
+    {
+        "question": "_________ he is rich, he cannot buy justice.",
+        "options": [
+            "A. If",
+            " B. Even if",
+            " C. Although",
+            " D. Whether"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Even if\" is used to say that something will not change even if a certain condition is true."
+    },
+    {
+        "question": "If you _________ that water, you will get sick.",
+        "options": [
+            "A. drink",
+            " B. drank",
+            " C. will drink",
+            " D. had drunk"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a warning about a real future result. We use the simple present tense after \"if.\""
+    },
+    {
+        "question": "I would buy an expensive car if I _________ rich.",
+        "options": [
+            "A. am",
+            " B. was",
+            " C. were",
+            " D. had been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"were\" to talk about a hypothetical or imaginary situation in the present."
+    },
+    {
+        "question": "Had the school _________ more money, it would have opened a new library.",
+        "options": [
+            "A. has",
+            " B. have",
+            " C. had",
+            " D. having"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence. \"Had the school had\" is another way to say \"If the school had had.\""
+    },
+    {
+        "question": "You won\u2019t be allowed to work here _________ you apply for a permit.",
+        "options": [
+            "A. if",
+            " B. unless",
+            " C. provided",
+            " D. so that"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Unless\" is used to mean \"except if.\" You need the permit first to be allowed to work."
+    },
+    {
+        "question": "If the rain _________ now, we will be on time for the meeting.",
+        "options": [
+            "A. starts",
+            " B. started",
+            " C. will start",
+            " D. had started"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a real future possibility. We use the simple present tense after \"if.\""
+    },
+    {
+        "question": "I _________ her a gift if she had invited me to her party.",
+        "options": [
+            "A. will buy",
+            " B. would buy",
+            " C. would have bought",
+            " D. will have bought"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence about a past event that didn't happen. We use \"would have bought.\""
+    },
+    {
+        "question": "If he _________ his eyes, he will see what is happening.",
+        "options": [
+            "A. open",
+            " B. opens",
+            " C. opened",
+            " D. will open"
+        ],
+        "correctAnswer": "B",
+        "explanation": "For a simple future result, we use the simple present tense \"opens\" in the \"if\" part."
+    },
+    {
+        "question": "The plants _________ if I didn\u2019t water them every day.",
+        "options": [
+            "A. die",
+            " B. will die",
+            " C. would die",
+            " D. had died"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a second conditional sentence. Because the \"if\" part is simple past, we use \"would die.\""
+    },
+    {
+        "question": "_________ for your help, I would have been drowned.",
+        "options": [
+            "A. If not",
+            " B. Unless",
+            " C. But for",
+            " D. If it was"
+        ],
+        "correctAnswer": "C",
+        "explanation": "\"But for\" is a formal way to say \"If it had not been for.\""
+    },
+    {
+        "question": "If I _________ a millionaire, I would spend my time travelling.",
+        "options": [
+            "A. am",
+            " B. was",
+            " C. were",
+            " D. have been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use \"were\" to talk about an imaginary situation that is not true now."
+    },
+    {
+        "question": "Many students _________ the exam if they had worked hard in Form 3.",
+        "options": [
+            "A. would pass",
+            " B. will pass",
+            " C. would have passed",
+            " D. pass"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence. Since the \"if\" part is past perfect, we use \"would have passed.\""
+    },
+    {
+        "question": "If we _________ now, we could be there in time.",
+        "options": [
+            "A. start",
+            " B. started",
+            " C. will start",
+            " D. had started"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence. We use the simple past \"started\" to talk about a present possibility."
+    },
+    {
+        "question": "_________ you see him, give him my regards.",
+        "options": [
+            "A. Should",
+            " B. Had",
+            " C. Unless",
+            " D. Would"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We can use \"Should\" at the start of a sentence to mean \"If you happen to.\""
+    },
+    {
+        "question": "If she _________ a car, she would have travelled to the lake.",
+        "options": [
+            "A. has",
+            " B. had",
+            " C. has had",
+            " D. had had"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence. The \"if\" part needs the past perfect \"had had.\""
+    },
+    {
+        "question": "I would have responded immediately if she _________ me.",
+        "options": [
+            "A. invites",
+            " B. invited",
+            " C. has invited",
+            " D. had invited"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence. We use the past perfect \"had invited\" for the past condition."
+    },
+    {
+        "question": "If you _________ the alarm, the police will arrive quickly.",
+        "options": [
+            "A. touch",
+            " B. touched",
+            " C. will touch",
+            " D. had touched"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a first conditional sentence. We use the simple present tense for a real future result."
+    },
+    {
+        "question": "They _________ the game if their best player hadn\u2019t been injured.",
+        "options": [
+            "A. will win",
+            " B. would win",
+            " C. would have won",
+            " D. had won"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence about a past result. We use \"would have won.\""
+    },
+    {
+        "question": "If you _________ to the right, you will soon reach the temple.",
+        "options": [
+            "A. turn",
+            " B. turned",
+            " C. will turn",
+            " D. had turned"
+        ],
+        "correctAnswer": "A",
+        "explanation": "For directions and real results, we use the simple present tense after \"if.\""
+    },
+    {
+        "question": "She _________ more attractive if she shaved her beard off.",
+        "options": [
+            "A. looks",
+            " B. will look",
+            " C. would look",
+            " D. had looked"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a second conditional sentence. Since \"shaved\" is simple past, we use \"would look.\""
+    },
+    {
+        "question": "If we _________ for the bus, we would have been late.",
+        "options": [
+            "A. wait",
+            " B. waited",
+            " C. had waited",
+            " D. have waited"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence about the past. We use the past perfect \"had waited.\""
+    },
+    {
+        "question": "Unless he _________ money before Friday, I will sue him.",
+        "options": [
+            "A. send",
+            " B. sends",
+            " C. will send",
+            " D. had sent"
+        ],
+        "correctAnswer": "B",
+        "explanation": "\"Unless\" means \"if not.\" We use the simple present tense \"sends\" for a future situation."
+    },
+    {
+        "question": "If the train _________ when it did, there could have been a disaster.",
+        "options": [
+            "A. doesn\u2019t stop",
+            " B. didn\u2019t stop",
+            " C. hadn\u2019t stopped",
+            " D. won\u2019t stop"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional sentence. We use the past perfect \"hadn't stopped\" for a past event."
+    },
+    {
+        "question": "I will go home today if your father _________ me again.",
+        "options": [
+            "A. beats",
+            " B. beat",
+            " C. will beat",
+            " D. would beat"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is a first conditional sentence about a real future possibility. We use the simple present tense."
+    },
+    {
+        "question": "If you _________ a mistake, cross it out neatly with a ruler.",
+        "options": [
+            "A. make",
+            " B. made",
+            " C. will make",
+            " D. have made"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This is an instruction for a real situation. We use the simple present tense after \"if.\""
+    },
+    {
+        "question": "Mavuto _________ you if he had a car.",
+        "options": [
+            "A. will escort",
+            " B. would escort",
+            " C. would have escorted",
+            " D. escorts"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence (not real). Since \"had\" is simple past, we use \"would escort.\""
+    },
+    {
+        "question": "If the situation _________ better, we would not have complained.",
+        "options": [
+            "A. is",
+            " B. was",
+            " C. were",
+            " D. had been"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This is a third conditional sentence. The \"if\" part needs the past perfect \"had been.\""
+    },
+    {
+        "question": "They _________ to the party tomorrow night if they are invited.",
+        "options": [
+            "A. go",
+            " B. will go",
+            " C. would go",
+            " D. have gone"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a real future possibility. We use \"will go\" for the result in the main part."
+    },
+    {
+        "question": "If she _________ the letter, she will definitely regret her actions.",
+        "options": [
+            "A. get",
+            " B. gets",
+            " C. got",
+            " D. had got"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a first conditional sentence about a likely future event. We use the simple present tense."
+    },
+    {
+        "question": "_________ you are not ready, we must go on without you.",
+        "options": [
+            "A. If",
+            " B. Unless",
+            " C. Provided",
+            " D. As long as"
+        ],
+        "correctAnswer": "A",
+        "explanation": "\"If\" is used here to show a condition that is happening now."
+    },
+    {
+        "question": "If I _________ what to do, I would do it right now.",
+        "options": [
+            "A. know",
+            " B. knew",
+            " C. will know",
+            " D. have known"
+        ],
+        "correctAnswer": "B",
+        "explanation": "This is a second conditional sentence about a hypothetical present. We use the simple past tense \"knew.\""
+    }
+]

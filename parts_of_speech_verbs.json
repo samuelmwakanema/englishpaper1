@@ -1,0 +1,332 @@
+[
+    {
+        "question": "The sun ________ in the east every morning.",
+        "options": [
+            "A. rise",
+            " B. rises",
+            " C. rose",
+            " D. rising"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the simple present tense for facts that happen every day."
+    },
+    {
+        "question": "By the time we reached the station, the train ________.",
+        "options": [
+            "A. left",
+            " B. leaves",
+            " C. had left",
+            " D. has left"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use the past perfect to show one action happened before another."
+    },
+    {
+        "question": "\u201cPlease be quiet; I ________ my home-work,\u201d said Tiyamike.",
+        "options": [
+            "A. do",
+            " B. did",
+            " C. am doing",
+            " D. have done"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Present continuous is used for actions that are happening at this moment."
+    },
+    {
+        "question": "The candidate was just halfway through the paper when he ________.",
+        "options": [
+            "A. collapses",
+            " B. collapsed",
+            " C. had collapsed",
+            " D. was collapsing"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Simple past is used for an action that happened at a specific time."
+    },
+    {
+        "question": "My brother ________ in a bank for eight years before he retired.",
+        "options": [
+            "A. work",
+            " B. worked",
+            " C. has worked",
+            " D. was working"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the simple past for actions that are finished and done."
+    },
+    {
+        "question": "I wish I ________ the answer to that question.",
+        "options": [
+            "A. know",
+            " B. knew",
+            " C. have known",
+            " D. will know"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We use the past tense after wish to talk about the present."
+    },
+    {
+        "question": "The students took turns on the new computer. (took)",
+        "options": [
+            "A. Action verb",
+            " B. Linking verb",
+            " C. Helping verb",
+            " D. Auxiliary verb"
+        ],
+        "correctAnswer": "A",
+        "explanation": "An action verb shows that someone is doing a physical thing."
+    },
+    {
+        "question": "The hot-water pipes in the building have ________ again.",
+        "options": [
+            "A. bursted",
+            " B. burst",
+            " C. bursting",
+            " D. been burst"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The word burst stays the same in the past and past participle."
+    },
+    {
+        "question": "The food tasted better without sugar. (tasted)",
+        "options": [
+            "A. Action verb",
+            " B. Linking verb",
+            " C. Helping verb",
+            " D. Transitive verb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "A linking verb connects the subject to a word that describes it."
+    },
+    {
+        "question": "She ________ her clothes on the line every Monday.",
+        "options": [
+            "A. lay",
+            " B. lays",
+            " C. lie",
+            " D. lies"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Lays means to put something down carefully on a flat surface."
+    },
+    {
+        "question": "The manager decided to ________ the coach of his duties.",
+        "options": [
+            "A. relieve",
+            " B. relieved",
+            " C. relieving",
+            " D. relief"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use the basic form of the verb after the word to."
+    },
+    {
+        "question": "By next March, we ________ in this village for ten years.",
+        "options": [
+            "A. will live",
+            " B. will be living",
+            " C. will have been living",
+            " D. have lived"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This shows an action that will continue until a specific future time."
+    },
+    {
+        "question": "You should not call so late. (should)",
+        "options": [
+            "A. Action verb",
+            " B. Linking verb",
+            " C. Helping verb",
+            " D. Main verb"
+        ],
+        "correctAnswer": "C",
+        "explanation": "A helping verb works with the main verb to show its meaning."
+    },
+    {
+        "question": "The water ________ if you heat it to 100 degrees Celsius.",
+        "options": [
+            "A. boil",
+            " B. boils",
+            " C. boiled",
+            " D. boiling"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Simple present is used for scientific facts that are always true."
+    },
+    {
+        "question": "Neither the students nor the teacher ________ responsible for the damage.",
+        "options": [
+            "A. are",
+            " B. were",
+            " C. is",
+            " D. have been"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The verb must agree with the noun that is closest to it."
+    },
+    {
+        "question": "I have never ________ a live koala bear before.",
+        "options": [
+            "A. see",
+            " B. saw",
+            " C. seen",
+            " D. seeing"
+        ],
+        "correctAnswer": "C",
+        "explanation": "We use the past participle seen after the helping verb have."
+    },
+    {
+        "question": "The group decided to hold the meeting. (hold)",
+        "options": [
+            "A. Intransitive verb",
+            " B. Transitive verb",
+            " C. Linking verb",
+            " D. Auxiliary verb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "A transitive verb must have an object like meeting after it."
+    },
+    {
+        "question": "It\u2019s high time you ________ studying seriously.",
+        "options": [
+            "A. begin",
+            " B. began",
+            " C. have begun",
+            " D. had begun"
+        ],
+        "correctAnswer": "B",
+        "explanation": "We always use simple past tense after the phrase it is high time."
+    },
+    {
+        "question": "The pilot was nervous because he ________ before.",
+        "options": [
+            "A. hasn\u2019t flown",
+            " B. didn\u2019t fly",
+            " C. hadn\u2019t flown",
+            " D. wasn\u2019t flying"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Past perfect shows an action that happened before another past event."
+    },
+    {
+        "question": "When Favour ________ netball tomorrow, Weston will be harvesting rice.",
+        "options": [
+            "A. is playing",
+            " B. will play",
+            " C. plays",
+            " D. would play"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Simple present is used in time clauses that talk about the future."
+    },
+    {
+        "question": "The book was ________ by a local company in Blantyre.",
+        "options": [
+            "A. published",
+            " B. publish",
+            " C. publishing",
+            " D. publisher"
+        ],
+        "correctAnswer": "A",
+        "explanation": "We use the past participle after was to show passive voice."
+    },
+    {
+        "question": "He became a soldier last year. (became)",
+        "options": [
+            "A. Action verb",
+            " B. Linking verb",
+            " C. Helping verb",
+            " D. Auxiliary verb"
+        ],
+        "correctAnswer": "B",
+        "explanation": "A linking verb shows a change in the state of being."
+    },
+    {
+        "question": "I ________ my keys again; have you seen them?",
+        "options": [
+            "A. lost",
+            " B. have lost",
+            " C. lose",
+            " D. had lost"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Present perfect shows an action that happened in the near past."
+    },
+    {
+        "question": "Look! The sun ________ over the hills.",
+        "options": [
+            "A. rises",
+            " B. rose",
+            " C. is rising",
+            " D. has risen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Present continuous shows an action happening right now as we look."
+    },
+    {
+        "question": "The ship ________ before we reached the port.",
+        "options": [
+            "A. sinks",
+            " B. sank",
+            " C. has sunk",
+            " D. had sunk"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Past perfect shows the ship sank before the people got there."
+    },
+    {
+        "question": "He thanked me for what I ________ for him.",
+        "options": [
+            "A. do",
+            " B. did",
+            " C. had done",
+            " D. have done"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Past perfect shows the action was done before the thanking happened."
+    },
+    {
+        "question": "They were singing when we passed by. (were)",
+        "options": [
+            "A. Main verb",
+            " B. Linking verb",
+            " C. Helping verb",
+            " D. Transitive verb"
+        ],
+        "correctAnswer": "C",
+        "explanation": "A helping verb is used here to make the continuous tense."
+    },
+    {
+        "question": "The teacher ________ the students not to be late.",
+        "options": [
+            "A. warned",
+            " B. warns",
+            " C. warning",
+            " D. warn"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Simple past is used to show a completed action in the past."
+    },
+    {
+        "question": "He ________ more success if he had tried harder.",
+        "options": [
+            "A. will have",
+            " B. would have",
+            " C. would have had",
+            " D. had"
+        ],
+        "correctAnswer": "C",
+        "explanation": "This is a third conditional used to talk about past possibilities."
+    },
+    {
+        "question": "The convict ________ from the maximum-security prison.",
+        "options": [
+            "A. broke away",
+            " B. broke down",
+            " C. broke out",
+            " D. broke off"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Broke out is a phrasal verb that means to escape from prison."
+    }
+]
