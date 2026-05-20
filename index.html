@@ -164,6 +164,7 @@
     let queue = [];                     // indices still to be asked this session
     let seenCount = 0;
     let streakCount = 0;
+    let sessionScore = 0;
     let currentQ = null;                // current question object
     let answered = false;
 
@@ -295,6 +296,7 @@
 
         if (chosen === correct) {
             selectedBtn.classList.add('correct');
+            sessionScore++;
         } else {
             selectedBtn.classList.add('incorrect');
             allBtns.forEach(b => {
@@ -364,7 +366,8 @@
         const minutes = Math.floor(currentSessionSeconds / 60);
         const seconds = currentSessionSeconds % 60;
         let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
-        
+
+        document.getElementById('session-score-modal').innerText = sessionScore;
         document.getElementById('session-time-spent').innerText = timeString;
         document.getElementById('milestoneModal').style.display = 'flex';
     }
@@ -372,6 +375,7 @@
     function closeModal() {
         document.getElementById('milestoneModal').style.display = 'none';
         streakCount = 0; // Clear the session counter
+        sessionScore = 0; 
         saveState();
         updateProgress(); // Instantly resets the bar back to 0 of 20
         startSessionTimer(); // Reset the timer clock
