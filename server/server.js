@@ -40,24 +40,12 @@ app.get('/api/comments', async (req, res) => {
     const limit = Math.min(parseInt(req.query.limit) || 10, 50); // Max 50
     const offset = parseInt(req.query.offset) || 0;
 
-    db.all(
-      `SELECT id, name, comment_text, score, topic, created_at 
-       FROM comments 
-       ORDER BY created_at DESC 
-       LIMIT ? OFFSET ?`,
-      [limit, offset],
-      (err, rows) => {
-        if (err) {
-          console.error('Database error:', err);
-          return res.status(500).json({ error: 'Failed to fetch comments' });
-        }
-        res.json({
-          success: true,
-          comments: rows || [],
-          count: rows ? rows.length : 0
-        });
-      }
-    );
+    const rows = await db.getComments(limit, offset);
+    res.json({
+      success: true,
+      comments: rows || [],
+      count: rows ? rows.length : 0
+    });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Server error' });
@@ -81,22 +69,18 @@ app.post('/api/comments', async (req, res) => {
     const finalTopic = topic || 'General';
     const finalScore = typeof score === 'number' ? score : null;
 
-    db.run(
-      `INSERT INTO comments (name, comment_text, score, topic, created_at) 
-       VALUES (?, ?, ?, ?, datetime('now'))`,
-      [finalName, comment_text.trim(), finalScore, finalTopic],
-      function(err) {
-        if (err) {
-          console.error('Database error:', err);
-          return res.status(500).json({ error: 'Failed to save comment' });
-        }
-        res.status(201).json({
-          success: true,
-          message: 'Comment saved successfully',
-          comment_id: this.lastID
-        });
-      }
-    );
+    const commentId = await db.addComment({
+      name: finalName,
+      comment_text: comment_text.trim(),
+      score: finalScore,
+      topic: finalTopic
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Comment saved successfully',
+      comment_id: commentId
+    });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Server error' });
