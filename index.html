@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSCE English Paper I</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZCGZ3X7M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EDZCGZ3X7M');
+    </script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; padding: 15px; }
+        header { background: var(--primary); color: white; padding: 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 1.5rem; margin-bottom: 5px; }
+
+        .container { max-width: 420px; margin: 0 auto; }
+        /* Ensure individual blocks can't exceed portrait width when hosted */
+        header, .card, #quiz-container, .donation-box {
+            max-width: 420px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+
+        /* Progress bar */
+        .progress-wrap { margin-bottom: 6px; }
+        .progress-bar-bg { background: #e5e7eb; border-radius: 999px; height: 8px; overflow: hidden; }
+        .progress-bar-fill { height: 8px; background: var(--primary); border-radius: 999px; transition: width 0.4s ease; }
+        .progress-label { font-size: 0.85rem; color: #6b7280; margin-top: 5px; display: flex; justify-content: space-between; align-items: center; }
+
+        /* Reset button */
+        .reset-wrap { text-align: right; margin-bottom: 10px; }
+        .btn-reset { background: none; border: 1px solid #d1d5db; color: #6b7280; padding: 5px 12px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; }
+        .btn-reset:hover { border-color: var(--danger); color: var(--danger); background: #fff1f2; }
+
+        /* Question Layout */
+        .question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; }
+        .options-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .option-btn { width: 100%; text-align: left; padding: 12px 15px; background: #fff; border: 2px solid #e5e7eb; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { border-color: var(--primary); background: #f0f4ff; }
+
+        /* Feedback */
+        .correct { background: #d1fae5 !important; border-color: var(--success) !important; color: #065f46; font-weight: bold; }
+        .incorrect { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+        .explanation-box { background: #eff6ff; border-left: 4px solid var(--primary); padding: 15px; margin-top: 15px; border-radius: 0 6px 6px 0; display: none; }
+        .explanation-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+
+        .nav-buttons { display: flex; justify-content: flex-end; margin-top: 20px; }
+        .btn { padding: 12px 20px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; font-weight: 600; background: var(--primary); color: white; transition: background 0.2s; }
+        .btn:hover { background: #132b6b; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-secondary { background: var(--secondary); color: var(--dark); }
+        .btn-secondary:hover { background: #d98704; }
+
+        /* Donation box */
+        .donation-box { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 2px dashed var(--secondary); border-radius: 8px; padding: 20px; text-align: center; margin-top: 30px; }
+        .donation-title { font-size: 1.2rem; font-weight: bold; color: #92400e; margin-bottom: 8px; }
+
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: white; max-width: 500px; width: 100%; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); animation: slideDown 0.3s ease-out; text-align: center; max-height: 85vh; overflow-y: auto; }
+        .modal-header { font-size: 1.4rem; font-weight: bold; color: var(--primary); margin-bottom: 12px; }
+        .modal-body { font-size: 1rem; margin-bottom: 20px; color: #4b5563; text-align: left; }
+        .modal-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .close-modal-btn { background: #e5e7eb; color: var(--dark); padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; }
+        .close-modal-btn:hover { background: #d1d5db; }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Share buttons */
+        .share-buttons-container { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center; }
+        .share-btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 16px; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; color: white; }
+        .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .share-whatsapp { background: #25d366; }
+        .share-whatsapp:hover { background: #1fb855; }
+        .share-facebook { background: #1877f2; }
+        .share-facebook:hover { background: #0a66c2; }
+        .share-twitter { background: #000; }
+        .share-twitter:hover { background: #1a1a1a; }
+        @media (max-width: 540px) {
+            .container { padding: 0 12px; }
+            .card { padding: 18px; }
+            .question-text { font-size: 1rem; }
+            .btn { width: 100%; }
+            .nav-buttons { flex-direction: column; align-items: stretch; }
+            .modal-content { padding: 20px; }
+            .modal-body { font-size: 0.95rem; }
+            .progress-label { flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
+
+        /* All-done banner */
+        #done-banner { display: none; text-align: center; padding: 30px 20px; }
+        #done-banner h2 { color: var(--primary); margin-bottom: 10px; }
+        #done-banner p { color: #6b7280; margin-bottom: 20px; }
+
+        /* Comments section */
+        .comments-section { background: #f9fafb; border-radius: 8px; padding: 15px; margin-top: 15px; }
+        .comments-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        .comments-list { display: flex; flex-direction: column; gap: 10px; }
+        .comment-item { background: white; padding: 12px; border-radius: 6px; border-left: 3px solid var(--primary); }
+        .comment-name { font-weight: 600; color: var(--dark); font-size: 0.9rem; }
+        .comment-text { color: #4b5563; font-size: 0.95rem; margin: 6px 0; line-height: 1.5; }
+        .comment-time { font-size: 0.8rem; color: #9ca3af; }
+        .no-comments { color: #9ca3af; font-size: 0.95rem; text-align: center; padding: 12px; }
+        .comments-loading { color: #9ca3af; font-size: 0.95rem; text-align: center; padding: 12px; }
+
+        /* Comment form in modal */
+        #comment-form-section { display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #e5e7eb; }
+        #comment-form-section h3 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+        #comment-name { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; margin-bottom: 10px; }
+        #comment-text { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; resize: vertical; min-height: 80px; margin-bottom: 10px; font-family: inherit; }
+        #comment-text::placeholder { color: #d1d5db; }
+        #comment-name::placeholder { color: #d1d5db; }
+        .comment-btn-group { display: flex; gap: 10px; }
+        #submit-comment-btn { flex: 1; padding: 10px; background: var(--success); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        #submit-comment-btn:hover { background: #059669; }
+        #submit-comment-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .comment-status { font-size: 0.9rem; margin-top: 8px; padding: 8px; border-radius: 4px; display: none; }
+        .comment-success { background: #d1fae5; color: #065f46; display: block; }
+        .comment-error { background: #fee2e2; color: #991b1b; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MSCE English Paper I</h1>
+        <p>Section A</p>
+    </header>
+
+    <div class="card" id="home-card" style="margin-bottom:15px;">
+        <h2 style="font-size:1.25rem; margin-bottom:15px;">Practice or Exam?</h2>
+        <p style="margin-bottom:15px; color:#4b5563;">Choose how you want to study today.</p>
+        <button class="btn btn-secondary" id="practice-btn" onclick="showPractice()" disabled style="margin-bottom:10px; width:100%;">Topical Practice</button>
+        <button class="btn btn-secondary" id="exam-btn" onclick="startExamSession()" disabled style="width:100%;">Take An Exam</button>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <div class="comments-title">💬 Recent Feedback from Students</div>
+            <div class="comments-list" id="comments-display"></div>
+        </div>
+    </div>
+
+    <div class="card" id="topic-card" style="margin-bottom:15px; display:none;">
+        <label style="font-weight:bold; display:block; margin-bottom:6px;">
+            Select Topic
+        </label>
+
+        <select id="topic-selector" disabled
+                style="width:100%; padding:10px; border-radius:6px; border:1px solid #d1d5db;">
+            <option value="">-- Choose Topic --</option>
+        </select>
+
+        <button class="btn btn-secondary" onclick="goHome()" style="margin-top:10px; width:100%;">Back to Home</button>
+    </div>
+
+    <button class="btn btn-secondary" id="quit-exam-btn" onclick="quitExam()" style="margin-top:10px; width:100%; display:none;">Quit Exam</button>
+
+        <div class="reset-wrap">
+            <button class="btn-reset" onclick="confirmReset()">↺ Reset Progress</button>
+        </div>
+        <div class="progress-wrap" id="progress-wrap" style="display:none;">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+            <div class="progress-label">
+                <span id="progress-text">Loading…</span>
+                <span id="session-timer" style="font-weight: 600; color: var(--primary);">Time: 0m 0s</span>
+                <span id="progress-pct">0%</span>
+            </div>
+        </div>
+    
+    <div class="card" id="quiz-container" style="display:none;">
+        <div class="question-text" id="question-text">Loading question database…</div>
+        <div id="options-container"></div>
+
+        <div class="explanation-box" id="explanation-box">
+            <div class="explanation-title">Explanation:</div>
+            <div id="explanation-text"></div>
+        </div>
+
+        <div class="nav-buttons" style="gap:10px; flex-wrap: wrap; justify-content: space-between;">
+            <button class="btn btn-secondary" onclick="goHome()" type="button">Back to Home</button>
+            <button class="btn" id="next-btn" onclick="nextQuestion()" disabled>Next Question</button>
+        </div>
+    </div>
+
+    <div class="card" id="done-banner">
+        <h2>🎓 You have answered 5 questions!</h2>
+        <p>You have gone through all questions for this session.</p>
+        <p style="margin-bottom: 20px; font-weight: 600; color: var(--success);">⏱️ Final Session Time: <span id="final-session-time">0s</span></p>
+        <button class="btn" onclick="confirmReset()">Start Over from Scratch</button>
+    </div>
+
+    <div class="donation-box">
+        <div class="donation-title">🏋️ <strong>The more you sweat in practice, the less you bleed in battle.</strong> 🏋️</div>
+        <p style="font-size: 0.95rem; color: #78350f;">
+            This platform is managed by <strong>Sam Mwakanema, Bsc Biotechnology (LUANAR)</strong>. Your generous support will help keep it online and accessible for all.
+        </p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="milestoneModal">
+    <div class="modal-content">
+        <div class="modal-header">🎉 5 Questions Done!</div>
+        <div class="modal-body">
+            <p style="margin-bottom: 12px; text-align: center; font-weight: 600; color: var(--success); font-size: 1.1rem;">
+                ⏱️ Session completed in <span id="session-time-spent">0 seconds</span>!
+            </p>
+            <p id="modal-score-text" style="margin-bottom: 12px; text-align: center; font-weight: 700; color: var(--primary); font-size: 1rem;">
+                Correct answers: 0 of 5
+            </p>
+            <p id="modal-subtitle" style="margin-bottom: 12px; text-align: center; font-weight: 600;">Great work — keep going, there are more questions waiting!</p>
+            <p style="margin-top: 20px; margin-bottom: 15px; text-align: center; font-weight: 700; font-size: 1.1rem; color: #1e3a8a;">🎊 Share your score and invite your friends to try, its FREE! 🎊</p>
+        </div>
+        <div id="share-buttons-section" class="share-buttons-container" style="display:none; margin-bottom: 15px;"></div>
+
+        <!-- Comment Form Section -->
+        <div id="comment-form-section">
+            <h3>📝 Leave a Comment</h3>
+            <input type="text" id="comment-name" placeholder="Your name (optional)" maxlength="50">
+            <textarea id="comment-text" placeholder="What do you think? Share your feedback..." maxlength="500"></textarea>
+            <div class="comment-btn-group">
+                <button class="btn btn-secondary" onclick="closeCommentForm()" style="flex: 1;">Cancel</button>
+                <button class="btn" id="submit-comment-btn" onclick="submitComment()" style="flex: 1;">Submit</button>
+            </div>
+            <div class="comment-status" id="comment-status"></div>
+        </div>
+
+        <div class="modal-buttons">
+            <button class="btn" onclick="closeModal()">Continue</button>
+            <button class="btn btn-secondary" id="comment-form-toggle" onclick="toggleCommentForm()" style="margin-top: 10px; width: 100%; display: none;">💬 Share Feedback</button>
+            <div style="margin-top: 15px; background: #fef3c7; border: 2px solid var(--secondary); border-radius: 6px; padding: 12px; text-align: center;">
+                <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--dark); font-weight: bold; text-decoration: none; display: inline-block;">
+                    💝 Donate K1000 to Build MSCE App 💝
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="confirmModal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">Exit Exam?</div>
+        <div class="modal-body">
+            <p id="confirm-message" style="margin-bottom: 15px; color: #374151; font-weight: 600;">If you leave now, your current exam progress will be lost.</p>
+            <p style="margin-top: 10px; color: #6b7280;">This action cannot be undone for the current session.</p>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn btn-secondary" onclick="cancelExitExam()">Cancel</button>
+            <button class="btn" id="confirm-action-btn" onclick="confirmExitExam()">Quit Exam</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* ─── Storage keys ─── */
+    const KEY_QUEUE   = 'rbr_queue';    // ordered list of unseen question indices
+    const KEY_SEEN    = 'rbr_seen';     // count of questions answered ever
+    const KEY_STREAK  = 'rbr_streak';   // questions answered since last milestone
+
+    const JSON_FILE = 'rb_rocket_eng_mcqs.json';
+    const MILESTONE = 5;               // show modal every N questions
+    const DEFAULT_TOPIC = 'Prepositional Structures';
+    const MODE_PRACTICE = 'practice';
+    const MODE_EXAM = 'exam';
+    const EXAM_DURATION = 30 * 60;     // 30 minutes in seconds
+    const EXAM_QUESTIONS = 30;
+
+    let db = [];                        // full database array
+    let queue = [];                     // indices still to be asked this session
+    let seenCount = 0;
+    let streakCount = 0;
+    let sessionCorrect = 0;
+    let currentQ = null;                // current question object
+    let answered = false;
+    let isDbLoaded = false;
+
+    let currentMode = MODE_PRACTICE;
+    let selectedTopic = '';
+    let filteredQuestions = [];
+
+    /* ─── Session Timer Variables ─── */
+    let sessionStartTime = null;
+    let timerInterval = null;
+    let currentSessionSeconds = 0;
+
+    /* ─── Exam Performance Tracking ─── */
+    let examPerformance = {}; // { topic: { total: N, correct: M } }
+    
+    /* ─── Topic Practice Performance Tracking ─── */
+    let topicPracticePerformance = { total: 0, correct: 0 }; // Track only the 5 questions in practice
+
+    /* ─── Fisher-Yates shuffle ─── */
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    /* ─── Load saved state from localStorage ─── */
+    function loadState() {
+        try {
+            const savedQueue = localStorage.getItem(KEY_QUEUE);
+            seenCount  = parseInt(localStorage.getItem(KEY_SEEN)   || '0', 10);
+            streakCount = parseInt(localStorage.getItem(KEY_STREAK) || '0', 10);
+            return savedQueue ? JSON.parse(savedQueue) : null;
+        } catch(e) { return null; }
+    }
+
+    function setUiEnabled(enabled) {
+        document.getElementById('practice-btn').disabled = !enabled;
+        document.getElementById('exam-btn').disabled = !enabled;
+        document.getElementById('topic-selector').disabled = !enabled;
+    }
+
+    function saveState() {
+        try {
+            localStorage.setItem(KEY_QUEUE,  JSON.stringify(queue));
+            localStorage.setItem(KEY_SEEN,   seenCount);
+            localStorage.setItem(KEY_STREAK, streakCount);
+        } catch(e) {}
+    }
+
+    /* ─── Session Timer Logic ─── */
+    function startSessionTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        sessionStartTime = Date.now();
+        timerInterval = setInterval(updateSessionTimer, 1000);
+    }
+
+    function updateSessionTimer() {
+        const elapsedMs = Date.now() - sessionStartTime;
+        const totalSeconds = Math.floor(elapsedMs / 1000);
+        currentSessionSeconds = totalSeconds;
+
+        if (currentMode === MODE_EXAM) {
+            const remainingSeconds = EXAM_DURATION - totalSeconds;
+            if (remainingSeconds <= 0) {
+                document.getElementById('session-timer').innerText = `Time left: 0m 0s`;
+                finishExam(true);
+                return;
+            }
+
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+            document.getElementById('session-timer').innerText = `Time left: ${minutes}m ${seconds}s`;
+            return;
+        }
+
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+
+        document.getElementById('session-timer').innerText = `Time: ${minutes}m ${seconds}s`;
+    }
+
+    const EXAM_TOPIC_BLOCKS = [
+        { topics: ['Prepositional Structures'], count: 4 },
+        { topics: ['Registers'], count: 4 },
+        { topics: ['Verb Tenses'], count: 4 },
+        { topics: ['Conditional Sentences'], count: 3 },
+        { topics: [
+            'Parts of Speech (Adjectives)',
+            'Parts of Speech (Adverbs)',
+            'Parts of Speech (Conjuctions)',
+            'Parts of Speech (Nouns)',
+            'Parts of Speech (Prepositions)',
+            'Parts of Speech (Pronouns)',
+            'Parts of Speech (Verbs)'
+        ], count: 4 },
+        { topics: ['Phrasal Verbs'], count: 3 },
+        { topics: ['Order of Adjectives'], count: 4 },
+        { topics: ['Surbodinate Clauses'], count: 2 },
+        { topics: ['Phrase'], count: 2 }
+    ];
+
+    function selectRandomQuestions(topics, count) {
+        const candidateIndexes = db
+            .map((q, idx) => ({ topic: q.topic, idx }))
+            .filter(item => topics.includes(item.topic))
+            .map(item => item.idx);
+
+        const uniqueCandidates = [...new Set(candidateIndexes)];
+        const shuffled = shuffle(uniqueCandidates);
+        return shuffled.slice(0, count);
+    }
+
+    function buildExamQueue() {
+        let examQueue = [];
+
+        EXAM_TOPIC_BLOCKS.forEach(block => {
+            const selection = selectRandomQuestions(block.topics, block.count);
+            if (selection.length < block.count) {
+                // fallback: take whatever exists for the block
+                examQueue = examQueue.concat(selection);
+            } else {
+                examQueue = examQueue.concat(selection);
+            }
+        });
+
+        return examQueue;
+    }
+
+    function startExamSession() {
+        currentMode = MODE_EXAM;
+        selectedTopic = '';
+
+        document.getElementById('home-card').style.display = 'none';
+        document.getElementById('topic-card').style.display = 'none';
+        document.getElementById('quit-exam-btn').style.display = 'inline-block';
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('progress-wrap').style.display = 'block';
+        document.getElementById('done-banner').style.display = 'none';
+
+        if (!isDbLoaded || db.length === 0) {
+            alert('Question database is still loading or unavailable. Please refresh the page and try again.');
+            return;
+        }
+
+        queue = buildExamQueue();
+        if (queue.length < EXAM_QUESTIONS) {
+            alert('Unable to build a full 30-question exam from the available database.');
+            return;
+        }
+
+        streakCount = 0;
+        sessionCorrect = 0;
+        examPerformance = {}; // Reset exam performance tracking
+
+        updateProgress();
+        startSessionTimer();
+        loadNextQuestion();
+    }
+
+    let pendingExitType = null;
+
+    function quitExam() {
+        if (currentMode === MODE_EXAM && queue.length > 0) {
+            promptExitExam('quit');
+        } else {
+            showHome();
+        }
+    }
+
+    function finishExam(expired) {
+        if (currentMode !== MODE_EXAM) return;
+        clearInterval(timerInterval);
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+        openModal(expired);
+    }
+
+    function populateTopics() {
+
+        const selector = document.getElementById('topic-selector');
+
+        const topics = [...new Set(db.map(q => q.topic))];
+        topics.sort();
+
+        topics.forEach(topic => {
+            const option = document.createElement('option');
+            option.value = topic;
+            option.innerText = topic;
+            selector.appendChild(option);
+        });
+
+        selector.addEventListener('change', function() {
+            selectedTopic = this.value;
+            if (!selectedTopic) return;
+            startTopicSession();
+        });
+
+        if (topics.includes(DEFAULT_TOPIC)) {
+            selector.value = DEFAULT_TOPIC;
+            selectedTopic = DEFAULT_TOPIC;
+        }
+    }
+
+    function startTopicSession() {
+        if (!selectedTopic) {
+            selectedTopic = DEFAULT_TOPIC;
+        }
+
+        filteredQuestions = db.filter(q => q.topic === selectedTopic);
+
+        if (filteredQuestions.length === 0) {
+            alert('No questions found for this topic.');
+            return;
+        }
+
+        const filteredIndexes = filteredQuestions.map(q => db.indexOf(q));
+        queue = shuffle(filteredIndexes).slice(0, MILESTONE);
+
+        streakCount = 0;
+        sessionCorrect = 0;
+        topicPracticePerformance = { total: 0, correct: 0 }; // Reset topic practice tracking
+
+        updateProgress();
+
+        startSessionTimer();
+
+        document.getElementById('home-card').style.display = 'none';
+        document.getElementById('topic-card').style.display = 'block';
+        document.getElementById('done-banner').style.display = 'none';
+        document.getElementById('quit-exam-btn').style.display = 'none';
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('progress-wrap').style.display = 'block';
+
+        loadNextQuestion();
+    }
+
+/* ─── Initialise ─── */
+    window.onload = function() {
+        fetch(JSON_FILE)
+            .then(r => {
+                if (!r.ok) throw new Error('JSON not found: ' + JSON_FILE);
+                return r.json();
+            })
+            .then(data => {
+                db = data.map(item => ({
+                    topic: item.Topic || item.topic || '',
+                    question: item.Question || item.question || '',
+                    options: [
+                        item['Option A'] || item.optionA || item.OptionA,
+                        item['Option B'] || item.optionB || item.OptionB,
+                        item['Option C'] || item.optionC || item.OptionC,
+                        item['Option D'] || item.optionD || item.OptionD
+                    ].filter(Boolean),
+                    correctAnswer: item.Answer || item.answer || '',
+                    explanation: item.Explanation || item.explanation || ''
+                })).filter(q => q.topic && q.question && q.options.length && q.correctAnswer);
+
+                populateTopics();
+                isDbLoaded = true;
+                setUiEnabled(true);
+
+                const savedQueue = loadState();
+
+                if (savedQueue && savedQueue.length > 0) {
+                    // Resume — use the saved queue order
+                    queue = savedQueue;
+                } else if (savedQueue && savedQueue.length === 0 && seenCount >= db.length) {
+                    // All done
+                    showDoneBanner();
+                    return;
+                } else {
+                    // Fresh start — shuffle all indices
+                    queue = shuffle([...Array(db.length).keys()]);
+                    seenCount = 0;
+                    streakCount = 0;
+                    saveState();
+                }
+
+                updateProgress();
+                showHome();
+                fetchComments(); // Load initial comments
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('question-text').innerText =
+                    "Database Error: Ensure '" + JSON_FILE + "' is in the same folder.";
+            });
+    };
+
+    /* ─── Load next question from queue ─── */
+    function loadNextQuestion() {
+        if (queue.length === 0) {
+            if (currentMode === MODE_EXAM) {
+                finishExam(false);
+            } else if (selectedTopic !== '') {
+                openModal();
+            }
+
+            return;
+        }
+
+        answered = false;
+        const idx = queue[0];           // peek — we remove it only after answering
+        currentQ = db[idx];
+
+        document.getElementById('question-text').innerText = currentQ.question;
+        document.getElementById('explanation-box').style.display = 'none';
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('next-btn').innerText = 'Next Question';
+
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+
+        currentQ.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = opt;
+            btn.onclick = function() {
+                selectAnswer(btn, opt.charAt(0), currentQ.correctAnswer, currentQ.explanation);
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    /* ─── Handle answer ─── */
+    function selectAnswer(selectedBtn, chosen, correct, explanation) {
+        if (answered) return;
+        answered = true;
+
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        const isCorrect = chosen === correct;
+        const topic = currentQ.topic;
+
+        if (isCorrect) {
+            sessionCorrect++;
+            if (currentMode !== MODE_EXAM) selectedBtn.classList.add('correct');
+        } else if (currentMode !== MODE_EXAM) {
+            selectedBtn.classList.add('incorrect');
+            allBtns.forEach(b => {
+                if (b.innerText.charAt(0) === correct) b.classList.add('correct');
+            });
+        }
+
+        // Track performance by topic for exam mode
+        if (currentMode === MODE_EXAM) {
+            if (!examPerformance[topic]) {
+                examPerformance[topic] = { total: 0, correct: 0 };
+            }
+            examPerformance[topic].total++;
+            if (isCorrect) {
+                examPerformance[topic].correct++;
+            }
+        }
+        
+        // Track performance for topic practice mode
+        if (currentMode === MODE_PRACTICE) {
+            topicPracticePerformance.total++;
+            if (isCorrect) {
+                topicPracticePerformance.correct++;
+            }
+        }
+
+        document.getElementById('explanation-text').innerText = explanation;
+        document.getElementById('explanation-box').style.display = currentMode === MODE_EXAM ? 'none' : 'block';
+        document.getElementById('next-btn').disabled = false;
+
+        // Commit: remove question from queue, update counts
+        queue.shift();
+        seenCount++;
+        streakCount++;
+        saveState();
+        updateProgress();
+    }
+
+    /* ─── Next question button ─── */
+    function nextQuestion() {
+        if (currentMode !== MODE_EXAM && streakCount > 0 && streakCount % MILESTONE === 0) {
+            clearInterval(timerInterval); // Pause timing
+            openModal();
+            return;
+        }
+        loadNextQuestion();
+    }
+
+    /* ─── Progress UI ─── */
+    function updateProgress() {
+        const totalSession = currentMode === MODE_EXAM ? EXAM_QUESTIONS : MILESTONE;
+        const doneSession  = streakCount; // How many answered in this session
+        const pct   = Math.round((doneSession / totalSession) * 100);
+
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('progress-text').innerText =
+            `${doneSession} of ${totalSession} questions answered`;
+        document.getElementById('progress-pct').innerText = pct + '%';
+    }
+
+    /* ─── All-done banner ─── */
+    function showDoneBanner() {
+        clearInterval(timerInterval);
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('done-banner').style.display = 'block';
+        
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+        document.getElementById('final-session-time').innerText = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+        
+        updateProgress();
+    }
+
+    /* ─── Reset ─── */
+    function confirmReset() {
+        if (confirm('Reset all progress? You will start from scratch with questions in a new random order.')) {
+            localStorage.removeItem(KEY_QUEUE);
+            localStorage.removeItem(KEY_SEEN);
+            localStorage.removeItem(KEY_STREAK);
+            location.reload();
+        }
+    }
+
+    function showHome() {
+        currentMode = MODE_PRACTICE;
+        clearInterval(timerInterval);
+        selectedTopic = '';
+        queue = [];
+        streakCount = 0;
+        sessionCorrect = 0;
+
+        document.getElementById('home-card').style.display = 'block';
+        document.getElementById('topic-card').style.display = 'none';
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('done-banner').style.display = 'none';
+        document.getElementById('quit-exam-btn').style.display = 'none';
+        document.getElementById('progress-wrap').style.display = 'none';
+        document.getElementById('progress-text').innerText = 'Loading…';
+        document.getElementById('progress-pct').innerText = '0%';
+        document.getElementById('progress-fill').style.width = '0%';
+        document.getElementById('session-timer').innerText = 'Time: 0m 0s';
+    }
+
+    function showPractice() {
+        currentMode = MODE_PRACTICE;
+        clearInterval(timerInterval);
+        selectedTopic = DEFAULT_TOPIC;
+        queue = [];
+        streakCount = 0;
+        sessionCorrect = 0;
+
+        document.getElementById('home-card').style.display = 'none';
+        document.getElementById('topic-card').style.display = 'block';
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('done-banner').style.display = 'none';
+        document.getElementById('quit-exam-btn').style.display = 'none';
+        document.getElementById('progress-wrap').style.display = 'block';
+        document.getElementById('topic-selector').value = DEFAULT_TOPIC;
+
+        updateProgress();
+        startTopicSession();
+    }
+
+    function goHome() {
+        if (currentMode === MODE_EXAM && queue.length > 0) {
+            promptExitExam('home');
+            return;
+        }
+        showHome();
+    }
+
+    function promptExitExam(type = 'quit') {
+        pendingExitType = type;
+        document.querySelector('#confirmModal .modal-header').innerText = 'Exit Exam?';
+        document.getElementById('confirm-message').innerText =
+            'If you leave now, your current exam progress will be lost.';
+        document.getElementById('confirm-action-btn').innerText =
+            type === 'home' ? 'Exit to Home' : 'Quit Exam';
+        document.getElementById('confirmModal').style.display = 'flex';
+    }
+
+    function confirmExitExam() {
+        document.getElementById('confirmModal').style.display = 'none';
+        clearInterval(timerInterval);
+        pendingExitType = null;
+        showHome();
+    }
+
+    function cancelExitExam() {
+        pendingExitType = null;
+        document.getElementById('confirmModal').style.display = 'none';
+    }
+
+    /* ─── Modal ─── */
+    function buildTopicSummary() {
+        const topics = Object.keys(examPerformance).sort();
+        
+        if (topics.length === 0) {
+            return '<p style="color: #6b7280;">No topics covered in this exam.</p>';
+        }
+
+        let html = '<div style="margin-top: 20px; text-align: left;">';
+        html += '<h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">Performance by Topic</h3>';
+        
+        topics.forEach(topic => {
+            const perf = examPerformance[topic];
+            const percentage = Math.round((perf.correct / perf.total) * 100);
+            
+            // Create circles for each question
+            let circles = '';
+            for (let i = 0; i < perf.total; i++) {
+                const isAnswered = i < perf.correct;
+                circles += `<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: ${isAnswered ? 'var(--success)' : '#e5e7eb'}; border: 2px solid ${isAnswered ? 'var(--success)' : '#d1d5db'}; margin-right: 4px;"></span>`;
+            }
+            
+            html += `
+                <div style="margin-bottom: 16px; padding: 12px; background: #f9fafb; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <span style="font-weight: 600; color: var(--dark); font-size: 0.95rem;">${topic}</span>
+                        <span style="color: #6b7280; font-size: 0.85rem;">${percentage}%</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                        ${circles}
+                        <span style="margin-left: 8px; font-size: 0.9rem; color: var(--dark);">
+                            <strong>${perf.correct}</strong>/${perf.total}
+                        </span>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += '</div>';
+        return html;
+    }
+
+    function buildTopicPracticeSummary() {
+        const percentage = Math.round((topicPracticePerformance.correct / topicPracticePerformance.total) * 100);
+        
+        let html = '<div style="margin-top: 20px; text-align: left;">';
+        html += `<h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary);">${selectedTopic}</h3>`;
+        
+        // Create circles for each question
+        let circles = '';
+        for (let i = 0; i < topicPracticePerformance.total; i++) {
+            const isAnswered = i < topicPracticePerformance.correct;
+            circles += `<span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: ${isAnswered ? 'var(--success)' : '#e5e7eb'}; border: 2px solid ${isAnswered ? 'var(--success)' : '#d1d5db'}; margin-right: 4px;"></span>`;
+        }
+        
+        html += `
+            <div style="padding: 12px; background: #f9fafb; border-radius: 6px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                    <span style="font-weight: 600; color: var(--dark); font-size: 0.95rem;">Performance</span>
+                    <span style="color: #6b7280; font-size: 0.85rem;">${percentage}%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    ${circles}
+                    <span style="margin-left: 8px; font-size: 0.9rem; color: var(--dark);">
+                        <strong>${topicPracticePerformance.correct}</strong>/${topicPracticePerformance.total}
+                    </span>
+                </div>
+            </div>
+        `;
+        
+        html += '</div>';
+        return html;
+    }
+
+    function openModal(expired = false) {
+        const minutes = Math.floor(currentSessionSeconds / 60);
+        const seconds = currentSessionSeconds % 60;
+        let timeString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''} and ${seconds} second${seconds !== 1 ? 's' : ''}` : `${seconds} second${seconds !== 1 ? 's' : ''}`;
+
+        document.getElementById('session-time-spent').innerText = timeString;
+
+        if (currentMode === MODE_EXAM) {
+            document.querySelector('#milestoneModal .modal-header').innerText = expired ? '⏱️ Time is up!' : '🎓 Exam Complete!';
+            document.getElementById('modal-score-text').innerText = `Correct answers: ${sessionCorrect} of ${streakCount}`;
+            document.getElementById('modal-subtitle').innerText = `You answered ${streakCount} of ${EXAM_QUESTIONS} questions.`;
+            
+            // Add topic summary
+            const topicSummaryHtml = buildTopicSummary();
+            let modalBody = document.querySelector('#milestoneModal .modal-body');
+            
+            // Remove any existing topic summary
+            const existingSummary = modalBody.querySelector('[data-topic-summary]');
+            if (existingSummary) {
+                existingSummary.remove();
+            }
+            
+            // Add new topic summary
+            const summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('data-topic-summary', 'true');
+            summaryDiv.innerHTML = topicSummaryHtml;
+            
+            // Insert after the subtitle
+            const subtitle = modalBody.querySelector('#modal-subtitle');
+            if (subtitle) {
+                subtitle.parentNode.insertBefore(summaryDiv, subtitle.nextSibling);
+            }
+        } else {
+            document.querySelector('#milestoneModal .modal-header').innerText = '🎉 5 Questions Done!';
+            document.getElementById('modal-score-text').innerText = `Correct answers: ${sessionCorrect} of ${MILESTONE}`;
+            document.getElementById('modal-subtitle').innerText = 'Great work — keep going, there are more questions waiting!';
+            
+            // Add topic practice summary
+            const topicSummaryHtml = buildTopicPracticeSummary();
+            let modalBody = document.querySelector('#milestoneModal .modal-body');
+            
+            // Remove any existing topic summary
+            const existingSummary = modalBody.querySelector('[data-practice-topic-summary]');
+            if (existingSummary) {
+                existingSummary.remove();
+            }
+            
+            // Add new practice topic summary
+            const summaryDiv = document.createElement('div');
+            summaryDiv.setAttribute('data-practice-topic-summary', 'true');
+            summaryDiv.innerHTML = topicSummaryHtml;
+            
+            // Insert after the subtitle
+            const subtitle = modalBody.querySelector('#modal-subtitle');
+            if (subtitle) {
+                subtitle.parentNode.insertBefore(summaryDiv, subtitle.nextSibling);
+            }
+        }
+
+        document.getElementById('milestoneModal').style.display = 'flex';
+        populateShareButtons();
+        showCommentFormInModal();
+    }
+
+    function closeModal() {
+        document.getElementById('milestoneModal').style.display = 'none';
+        clearInterval(timerInterval);
+
+        if (currentMode === MODE_EXAM) {
+            goHome();
+            return;
+        }
+
+        streakCount = 0; // Clear the session counter
+        saveState();
+        updateProgress(); // Instantly resets the bar back to 0 of 20
+        startSessionTimer(); // Reset the timer clock
+        startTopicSession();
+    }
+
+    /* ─── Share Functions ─── */
+    function generateShareMessage() {
+        const score = sessionCorrect;
+        const total = currentMode === MODE_EXAM ? streakCount : MILESTONE;
+        const percentage = Math.round((score / total) * 100);
+        const mode = currentMode === MODE_EXAM ? 'exam' : 'practice';
+        return `🎓 I just completed MSCE English Paper I ${mode === 'exam' ? 'Exam' : 'Practice'} and scored ${score}/${total} (${percentage}%)! `;
+    }
+
+    function shareToWhatsApp() {
+        const message = generateShareMessage() + 'Try it yourself: ' + window.location.href;
+        const encoded = encodeURIComponent(message);
+        window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    }
+
+    function shareToFacebook() {
+        const url = window.location.href;
+        const message = generateShareMessage();
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function shareToTwitter() {
+        const message = generateShareMessage() + window.location.href;
+        const encoded = encodeURIComponent(message);
+        window.open(`https://twitter.com/intent/tweet?text=${encoded}`, '_blank');
+    }
+
+    function populateShareButtons() {
+        const shareSection = document.getElementById('share-buttons-section');
+        shareSection.innerHTML = `
+            <button class="share-btn share-whatsapp" onclick="shareToWhatsApp()" title="Share to WhatsApp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.531.92-2.74 2.312-3.556 3.922-1.604 3.249-.996 7.091 1.58 9.778 1.474 1.508 3.509 2.43 5.758 2.43h.005c1.572 0 3.102-.435 4.456-1.27l.321-.184 3.29.86-.875-3.195.236-.38a9.844 9.844 0 001.805-5.968c0-5.46-4.443-9.896-9.986-9.896" fill="white"/></svg>
+                WhatsApp
+            </button>
+            <button class="share-btn share-facebook" onclick="shareToFacebook()" title="Share to Facebook">
+                f Facebook
+            </button>
+            <button class="share-btn share-twitter" onclick="shareToTwitter()" title="Share to Twitter">
+                𝕏 Twitter
+            </button>
+        `;
+        shareSection.style.display = 'flex';
+    }
+
+    /* ─── COMMENTS SECTION ─── */
+    const COMMENTS_API_URL = 'https://englishpaper1-production.up.railway.app/api/comments';
+
+    function fetchComments() {
+        const commentsDisplay = document.getElementById('comments-display');
+        commentsDisplay.innerHTML = '<div class="comments-loading">Loading comments...</div>';
+
+        fetch(COMMENTS_API_URL + '?limit=5')
+            .then(res => res.json())
+            .then(data => {
+                if (data.comments && data.comments.length > 0) {
+                    displayComments(data.comments);
+                } else {
+                    commentsDisplay.innerHTML = '<div class="no-comments">No comments yet. Be the first to share!</div>';
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching comments:', err);
+                commentsDisplay.innerHTML = '<div class="no-comments">Could not load comments</div>';
+            });
+    }
+
+    function displayComments(comments) {
+        const commentsDisplay = document.getElementById('comments-display');
+        commentsDisplay.innerHTML = '';
+
+        comments.forEach(comment => {
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            
+            const date = new Date(comment.created_at);
+            const timeAgo = getTimeAgo(date);
+            
+            let scoreHtml = '';
+            if (comment.score !== null && comment.topic) {
+                scoreHtml = ` • <strong>${comment.score}</strong> score`;
+            }
+
+            commentItem.innerHTML = `
+                <div class="comment-name">${escapeHtml(comment.name || 'Anonymous')}${scoreHtml}</div>
+                <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
+                <div class="comment-time">${timeAgo}</div>
+            `;
+            
+            commentsDisplay.appendChild(commentItem);
+        });
+    }
+
+    function getTimeAgo(date) {
+        const seconds = Math.floor((new Date() - date) / 1000);
+        let interval = seconds / 31536000;
+
+        if (interval > 1) return Math.floor(interval) + ' year' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
+        interval = seconds / 2592000;
+        if (interval > 1) return Math.floor(interval) + ' month' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
+        interval = seconds / 86400;
+        if (interval > 1) return Math.floor(interval) + ' day' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
+        interval = seconds / 3600;
+        if (interval > 1) return Math.floor(interval) + ' hour' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
+        interval = seconds / 60;
+        if (interval > 1) return Math.floor(interval) + ' minute' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
+        return Math.floor(seconds) + ' second' + (Math.floor(seconds) > 1 ? 's' : '') + ' ago';
+    }
+
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    function toggleCommentForm() {
+        const formSection = document.getElementById('comment-form-section');
+        const toggle = document.getElementById('comment-form-toggle');
+        
+        if (formSection.style.display === 'none') {
+            formSection.style.display = 'block';
+            toggle.innerText = '✕ Hide Form';
+            document.getElementById('comment-name').focus();
+        } else {
+            formSection.style.display = 'none';
+            toggle.innerText = '💬 Share Feedback';
+            clearCommentForm();
+        }
+    }
+
+    function closeCommentForm() {
+        document.getElementById('comment-form-section').style.display = 'none';
+        document.getElementById('comment-form-toggle').style.display = 'block';
+        document.getElementById('comment-form-toggle').innerText = '💬 Share Feedback';
+        clearCommentForm();
+    }
+
+    function clearCommentForm() {
+        document.getElementById('comment-name').value = '';
+        document.getElementById('comment-text').value = '';
+        document.getElementById('comment-status').className = 'comment-status';
+        document.getElementById('comment-status').innerHTML = '';
+    }
+
+    function submitComment() {
+        const name = document.getElementById('comment-name').value.trim();
+        const text = document.getElementById('comment-text').value.trim();
+        const submitBtn = document.getElementById('submit-comment-btn');
+        const statusDiv = document.getElementById('comment-status');
+
+        if (!text) {
+            statusDiv.className = 'comment-status comment-error';
+            statusDiv.innerHTML = 'Please write a comment!';
+            return;
+        }
+
+        submitBtn.disabled = true;
+        statusDiv.className = 'comment-status';
+        statusDiv.innerHTML = 'Submitting...';
+
+        const payload = {
+            name: name,
+            comment_text: text,
+            score: sessionCorrect,
+            topic: selectedTopic || (currentMode === MODE_EXAM ? 'Exam' : 'General')
+        };
+
+        fetch(COMMENTS_API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                statusDiv.className = 'comment-status comment-success';
+                statusDiv.innerHTML = '✓ Comment posted! Thank you! 🎉';
+                clearCommentForm();
+                setTimeout(() => {
+                    closeCommentForm();
+                    fetchComments(); // Refresh comments display
+                }, 2000);
+            } else {
+                throw new Error(data.error || 'Failed to submit comment');
+            }
+        })
+        .catch(err => {
+            console.error('Error submitting comment:', err);
+            statusDiv.className = 'comment-status comment-error';
+            statusDiv.innerHTML = 'Error: ' + (err.message || 'Could not submit comment. Check your connection.');
+            submitBtn.disabled = false;
+        });
+    }
+
+    function showCommentFormInModal() {
+        document.getElementById('comment-form-toggle').style.display = 'block';
+        closeCommentForm();
+    }
+</script>
+</body>
+</html>
