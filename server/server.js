@@ -87,8 +87,8 @@ app.post('/api/comments', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, () => {
+// Railway's edge proxy needs the app bound to 0.0.0.0, not just localhost.
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📝 API ready at http://localhost:${PORT}/api`);
 });
