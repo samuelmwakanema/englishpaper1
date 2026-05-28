@@ -113,31 +113,6 @@
         #done-banner h2 { color: var(--primary); margin-bottom: 10px; }
         #done-banner p { color: #6b7280; margin-bottom: 20px; }
 
-        /* Comments section */
-        .comments-section { background: #f9fafb; border-radius: 8px; padding: 15px; margin-top: 15px; }
-        .comments-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-        .comments-list { display: flex; flex-direction: column; gap: 10px; }
-        .comment-item { background: white; padding: 12px; border-radius: 6px; border-left: 3px solid var(--primary); }
-        .comment-name { font-weight: 600; color: var(--dark); font-size: 0.9rem; }
-        .comment-text { color: #4b5563; font-size: 0.95rem; margin: 6px 0; line-height: 1.5; }
-        .comment-time { font-size: 0.8rem; color: #9ca3af; }
-        .no-comments { color: #9ca3af; font-size: 0.95rem; text-align: center; padding: 12px; }
-        .comments-loading { color: #9ca3af; font-size: 0.95rem; text-align: center; padding: 12px; }
-
-        /* Comment form in modal */
-        #comment-form-section { display: none; margin-top: 20px; padding-top: 20px; border-top: 2px solid #e5e7eb; }
-        #comment-form-section h3 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-        #comment-name { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; margin-bottom: 10px; }
-        #comment-text { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 0.95rem; resize: vertical; min-height: 80px; margin-bottom: 10px; font-family: inherit; }
-        #comment-text::placeholder { color: #d1d5db; }
-        #comment-name::placeholder { color: #d1d5db; }
-        .comment-btn-group { display: flex; gap: 10px; }
-        #submit-comment-btn { flex: 1; padding: 10px; background: var(--success); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-        #submit-comment-btn:hover { background: #059669; }
-        #submit-comment-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .comment-status { font-size: 0.9rem; margin-top: 8px; padding: 8px; border-radius: 4px; display: none; }
-        .comment-success { background: #d1fae5; color: #065f46; display: block; }
-        .comment-error { background: #fee2e2; color: #991b1b; display: block; }
     </style>
 </head>
 <body>
@@ -154,11 +129,6 @@
         <button class="btn btn-secondary" id="practice-btn" onclick="showPractice()" disabled style="margin-bottom:10px; width:100%;">Topical Practice</button>
         <button class="btn btn-secondary" id="exam-btn" onclick="startExamSession()" disabled style="width:100%;">Take An Exam</button>
 
-        <!-- Comments Section -->
-        <div class="comments-section">
-            <div class="comments-title">💬 Recent Feedback from Students</div>
-            <div class="comments-list" id="comments-display"></div>
-        </div>
     </div>
 
     <div class="card" id="topic-card" style="margin-bottom:15px; display:none;">
@@ -235,21 +205,8 @@
         </div>
         <div id="share-buttons-section" class="share-buttons-container" style="display:none; margin-bottom: 15px;"></div>
 
-        <!-- Comment Form Section -->
-        <div id="comment-form-section">
-            <h3>📝 Leave a Comment</h3>
-            <input type="text" id="comment-name" placeholder="Your name (optional)" maxlength="50">
-            <textarea id="comment-text" placeholder="What do you think? Share your feedback..." maxlength="500"></textarea>
-            <div class="comment-btn-group">
-                <button class="btn btn-secondary" onclick="closeCommentForm()" style="flex: 1;">Cancel</button>
-                <button class="btn" id="submit-comment-btn" onclick="submitComment()" style="flex: 1;">Submit</button>
-            </div>
-            <div class="comment-status" id="comment-status"></div>
-        </div>
-
         <div class="modal-buttons">
             <button class="btn" onclick="closeModal()">Continue</button>
-            <button class="btn btn-secondary" id="comment-form-toggle" onclick="toggleCommentForm()" style="margin-top: 10px; width: 100%; display: none;">💬 Share Feedback</button>
             <div style="margin-top: 15px; background: #fef3c7; border: 2px solid var(--secondary); border-radius: 6px; padding: 12px; text-align: center;">
                 <a href="https://give.paychangu.com/dc-x8nfui" target="_blank" style="color: var(--dark); font-weight: bold; text-decoration: none; display: inline-block;">
                     💝 Donate K1000 to Build MSCE App 💝
@@ -575,7 +532,6 @@
 
                 updateProgress();
                 showHome();
-                fetchComments(); // Load initial comments
             })
             .catch(err => {
                 console.error(err);
@@ -921,7 +877,6 @@
 
         document.getElementById('milestoneModal').style.display = 'flex';
         populateShareButtons();
-        showCommentFormInModal();
     }
 
     function closeModal() {
@@ -984,166 +939,6 @@
         shareSection.style.display = 'flex';
     }
 
-    /* ─── COMMENTS SECTION ─── */
-    const COMMENTS_API_URL = 'https://englishpaper1-production.up.railway.app/api/comments';
-
-    function fetchComments() {
-        const commentsDisplay = document.getElementById('comments-display');
-        commentsDisplay.innerHTML = '<div class="comments-loading">Loading comments...</div>';
-
-        fetch(COMMENTS_API_URL + '?limit=5')
-            .then(res => res.json())
-            .then(data => {
-                if (data.comments && data.comments.length > 0) {
-                    displayComments(data.comments);
-                } else {
-                    commentsDisplay.innerHTML = '<div class="no-comments">No comments yet. Be the first to share!</div>';
-                }
-            })
-            .catch(err => {
-                console.error('Error fetching comments:', err);
-                commentsDisplay.innerHTML = '<div class="no-comments">Could not load comments</div>';
-            });
-    }
-
-    function displayComments(comments) {
-        const commentsDisplay = document.getElementById('comments-display');
-        commentsDisplay.innerHTML = '';
-
-        comments.forEach(comment => {
-            const commentItem = document.createElement('div');
-            commentItem.className = 'comment-item';
-            
-            const date = new Date(comment.created_at);
-            const timeAgo = getTimeAgo(date);
-            
-            let scoreHtml = '';
-            if (comment.score !== null && comment.topic) {
-                scoreHtml = ` • <strong>${comment.score}</strong> score`;
-            }
-
-            commentItem.innerHTML = `
-                <div class="comment-name">${escapeHtml(comment.name || 'Anonymous')}${scoreHtml}</div>
-                <div class="comment-text">${escapeHtml(comment.comment_text)}</div>
-                <div class="comment-time">${timeAgo}</div>
-            `;
-            
-            commentsDisplay.appendChild(commentItem);
-        });
-    }
-
-    function getTimeAgo(date) {
-        const seconds = Math.floor((new Date() - date) / 1000);
-        let interval = seconds / 31536000;
-
-        if (interval > 1) return Math.floor(interval) + ' year' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
-        interval = seconds / 2592000;
-        if (interval > 1) return Math.floor(interval) + ' month' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
-        interval = seconds / 86400;
-        if (interval > 1) return Math.floor(interval) + ' day' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
-        interval = seconds / 3600;
-        if (interval > 1) return Math.floor(interval) + ' hour' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
-        interval = seconds / 60;
-        if (interval > 1) return Math.floor(interval) + ' minute' + (Math.floor(interval) > 1 ? 's' : '') + ' ago';
-        return Math.floor(seconds) + ' second' + (Math.floor(seconds) > 1 ? 's' : '') + ' ago';
-    }
-
-    function escapeHtml(text) {
-        const map = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#039;'
-        };
-        return text.replace(/[&<>"']/g, m => map[m]);
-    }
-
-    function toggleCommentForm() {
-        const formSection = document.getElementById('comment-form-section');
-        const toggle = document.getElementById('comment-form-toggle');
-        
-        if (formSection.style.display === 'none') {
-            formSection.style.display = 'block';
-            toggle.innerText = '✕ Hide Form';
-            document.getElementById('comment-name').focus();
-        } else {
-            formSection.style.display = 'none';
-            toggle.innerText = '💬 Share Feedback';
-            clearCommentForm();
-        }
-    }
-
-    function closeCommentForm() {
-        document.getElementById('comment-form-section').style.display = 'none';
-        document.getElementById('comment-form-toggle').style.display = 'block';
-        document.getElementById('comment-form-toggle').innerText = '💬 Share Feedback';
-        clearCommentForm();
-    }
-
-    function clearCommentForm() {
-        document.getElementById('comment-name').value = '';
-        document.getElementById('comment-text').value = '';
-        document.getElementById('comment-status').className = 'comment-status';
-        document.getElementById('comment-status').innerHTML = '';
-    }
-
-    function submitComment() {
-        const name = document.getElementById('comment-name').value.trim();
-        const text = document.getElementById('comment-text').value.trim();
-        const submitBtn = document.getElementById('submit-comment-btn');
-        const statusDiv = document.getElementById('comment-status');
-
-        if (!text) {
-            statusDiv.className = 'comment-status comment-error';
-            statusDiv.innerHTML = 'Please write a comment!';
-            return;
-        }
-
-        submitBtn.disabled = true;
-        statusDiv.className = 'comment-status';
-        statusDiv.innerHTML = 'Submitting...';
-
-        const payload = {
-            name: name,
-            comment_text: text,
-            score: sessionCorrect,
-            topic: selectedTopic || (currentMode === MODE_EXAM ? 'Exam' : 'General')
-        };
-
-        fetch(COMMENTS_API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                statusDiv.className = 'comment-status comment-success';
-                statusDiv.innerHTML = '✓ Comment posted! Thank you! 🎉';
-                clearCommentForm();
-                setTimeout(() => {
-                    closeCommentForm();
-                    fetchComments(); // Refresh comments display
-                }, 2000);
-            } else {
-                throw new Error(data.error || 'Failed to submit comment');
-            }
-        })
-        .catch(err => {
-            console.error('Error submitting comment:', err);
-            statusDiv.className = 'comment-status comment-error';
-            statusDiv.innerHTML = 'Error: ' + (err.message || 'Could not submit comment. Check your connection.');
-            submitBtn.disabled = false;
-        });
-    }
-
-    function showCommentFormInModal() {
-        document.getElementById('comment-form-toggle').style.display = 'block';
-        closeCommentForm();
-    }
 </script>
 </body>
 </html>

@@ -1,8 +1,0 @@
-node_modules/
-comments.db
-server/comments.db
-comments.json
-server/comments.json
-.env
-.env.local
-*.log
