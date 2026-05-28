@@ -8,8 +8,13 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: ['https://samuelmwakanema.github.io', 'http://localhost:3000', 'http://localhost:5500'],
-  methods: ['GET', 'POST'],
+  origin: [
+    'https://samuelmwakanema.github.io', 
+    'http://localhost:3000', 
+    'http://localhost:5500'
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'], // 1. Added OPTIONS here
+  allowedHeaders: ['Content-Type'],    // 2. Added explicitly allowed headers
   credentials: true
 }));
 app.use(express.json());
